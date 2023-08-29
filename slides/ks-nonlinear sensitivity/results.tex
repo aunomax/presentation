@@ -1,0 +1,66 @@
+\section{Our results}
+\begin{frame}{Our results}
+\begin{equation}\label{H: u_0}
+	\begin{aligned}
+	&0\leq u_0\in C^\vartheta(\overline{\Omega}) \text{ for some } \vartheta\in(0, 1),\text{ radially symmetric,}\\
+	&\text{\alert{nonincreasing} and  } u_0\not\equiv \text{ const. } 
+	\end{aligned}\tag{$\mathcal{I}$}
+\end{equation}
+\begin{theorem}\label{thm: large m implies blowup}
+	Let $n\geqslant 2$, $R>0$ and $\alpha\geqslant\frac2n$. There exists $m^* = m^*(n, R, \alpha) > 0$ such that for arbitrary $u_0$ satisfying \eqref{H: u_0} and $\int_\Omega u_0 > m^*$, 
+	if $\alpha > \frac2n$, then the corresponding classical solution $(u, v)$ of \eqref{sys: ks-nonlinear-sensitivity} in $\Omega\times(0, T_{\max})$ satisfies 	
+    \begin{equation}\label{eq: blow up in finite time}
+		\lim_{t\nearrow T_{\max}}\|u(\cdot, t)\|_{L^\infty(\Omega)} = \infty,
+	\end{equation}	
+	where $T_{\max} < \infty$ is the maximal existence time;
+	if $\alpha=\frac2n$, then the corresponding classical solution may blow up in finite or infinite time.
+\end{theorem}
+``\alert{nonincreasing}" can be weakened to ``$\alert{\fint_{B_r}u_0\geq \fint_{\Omega}u_0 \text{ for all } r\in(0, R)}$"
+\end{frame}
+
+\begin{frame}
+
+\begin{theorem}\label{thm: small m implies existence of globally bounded solution}
+	Let $n\geqslant 2$, $R>0$ and $\alpha \geqslant\frac2n$, and suppose that $u_0$ satisfies \eqref{H: u_0}. 
+	There exists $\varepsilon^*\in(0,2]$ such that if for all $r\in(0, R)$, 
+	\begin{equation}\label{eq: small mass initial function with pointwise estimate}
+	\int_{B_r}u_0 <
+	\begin{cases}
+	2\omega_n r^{n-2} & \alpha < 1,\\
+	\varepsilon^*\omega_n r^{n-\frac2\alpha} & \alpha\geqslant1,\\
+	\end{cases}
+	\end{equation}
+then the system \eqref{sys: ks-nonlinear-sensitivity} admits a global classical solution $(u, v)$ which is bounded in the sense that there exists $C>0$ such that
+\begin{equation}\nonumber
+	\|u(\cdot, t)\|_{L^\infty(\Omega)} \leqslant C \quad\text{ for all } t > 0,
+\end{equation}
+where $\omega_n$ denotes the surface area of unit sphere in $\mathbb{R}^n$.
+\end{theorem}
+
+\end{frame}
+
+\begin{frame}
+\begin{corollary}\label{critical mass corollary}
+	Let $n\geqslant2$ and $R>0$, denote
+	\begin{equation}\nonumber
+		\begin{aligned}
+			S(n, R, \alpha) := \{ m > 0 \mid \text{ for all } u_0 \text{ satisfying } \eqref{H: u_0},
+			\eqref{sys: ks-nonlinear-sensitivity} \\
+			\text{ admits a solution blowing up in finite time.}\}
+		\end{aligned}
+	\end{equation}
+for $\alpha > \frac2n$ and
+\begin{equation}\nonumber
+	\begin{aligned}
+		S(n, R, \alpha) := \{ m > 0 \mid \text{ for all } u_0 \text{ satisfying } \eqref{H: u_0},
+		\eqref{sys: ks-nonlinear-sensitivity} \\
+		\text{ admits an unbounded solution.}\}
+	\end{aligned}
+\end{equation}
+for $\alpha=\frac2n$. Then
+ $$m_c(n, R, \alpha) := \inf S(n, R, \alpha)$$ is well-defined and positive for all $n\geqslant2$, $R>0$ and $\alpha\geqslant\frac2n$. Moreover,
+$$(m_c,\infty)\subset S(n, R, \alpha).$$
+\end{corollary}
+\end{frame}
+
+
