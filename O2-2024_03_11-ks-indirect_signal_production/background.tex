@@ -1,0 +1,285 @@
+\section{Background}
+
+\begin{frame}
+In this talk, we shall consider the radially symmetric solutions of the chemotaxis system
+\begin{equation}\nonumber
+\begin{cases}
+		u_t = \Delta u - \nabla \cdot(u\nabla v),&  t>0, x\in\Omega,\\
+		0 =  \Delta v - \mu + w,&  t>0, x\in\Omega,	\\
+		w_t + w = u, &  t > 0, x\in\Omega, \\
+		\partial_\nu u = \partial_\nu v = 0 , & t >0, x\in\partial\Omega,\\
+		u(\cdot, 0) = u_0, w(\cdot, 0) = w_0, & x\in\Omega
+\end{cases}
+\end{equation}
+\begin{itemize}
+    \item $\Omega = B_1:=\{x\in\mathbb{R}^2:|x|<1\}$,
+    \item $\mu = \mu(t) = \fint_\Omega u(x, t)\dd x$ and 
+    \item \(u_0\in C^0(\overline{\Omega})\) and  \(w_0\in C^1(\overline{\Omega})\) are non-negative and radially symmetric.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Background}
+\blue{Keller-Segel-1970-JTB}; \blue{Strohm-Tyson-Powell-2013-BMB}
+\begin{equation}\nonumber
+	\begin{cases}
+		u_t = \nabla\cdot(\nabla u - u\nabla v) + f(u,w), & (x, t)\in \Omega\times(0, T),\\
+		v_t = \Delta v - v + \alert{w}, & (x, t)\in \Omega\times(0, T),\\
+		w_t = u - w, & (x, t)\in \Omega\times(0, T).
+	\end{cases}
+\end{equation}
+\begin{itemize}
+    \item $u = u(x, t)$ and $w = w(x, t)$ denote the density of flying beetles and nesting beetles, respectively.
+    \item $v = v(x, t)$ represents the concentration of chemical substance.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\blue{J\"ager-Luckhaus-1992-TAMS} studied the following parabolic-elliptic system in a planar domain   
+\begin{equation}\label{sys: JL}
+\begin{cases}\tag{JL}
+u_t = \Delta u - \nabla\cdot(u\nabla v), & x\in\Omega, t > 0,\\
+0 = \Delta v - \mu + u, & x\in\Omega, t > 0,
+\end{cases}
+\end{equation}
+\begin{itemize}
+    \item there exists radial initial function with large mass such that the corresponding solution of \eqref{sys: JL} blows up at finite time, 
+    \item while that initial mass is less than a number implies that \eqref{sys: JL} exists a global solution.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+      \blue{Nagai-1995-AMSA} considered radial solutions of
+ \begin{equation}
+ \label{sys: nagai pe}
+ \begin{cases}\tag{N}
+ u_t = \nabla\cdot(\nabla u - u\nabla v), & x\in\Omega, t > 0,\\
+ 0 = \Delta v - v + u, & x\in\Omega, t > 0, \\
+ \end{cases}
+ \end{equation} 
+ and deduced the two-dimensional critical mass $8\pi$ for blowup.
+ \begin{itemize}
+    \item if $n=1$ or $n=2$ and $m<8\pi$, then the solution is globally bounded, 
+    \item but either $n\geq3$ or $n=2$ and $m>8\pi$, if $\int_\Omega u_0|x|^n\dd x$ is sufficiently small, then $u$ blows up in finite time.
+    \item either $q\in\Omega$ and $m > 8\pi$ or $q\in\partial\Omega$ and $m > 4\pi$, if $\int_\Omega u_0|x-q|^2\dd x$ is sufficiently small, then the solution blows up in finite time. \blue{Nagai-2001-JIA}
+ \end{itemize}
+ The results above also hold for the system \eqref{sys: JL}.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+The two-dimensional critical mass phenomenon:
+\begin{equation}\label{sys: classical ks}
+	\begin{cases}
+		u_t = \nabla\cdot(\nabla u - u\nabla v), & (x, t)\in \Omega\times(0, T),\\
+		v_t = \Delta v - v + u, & (x, t)\in \Omega\times(0, T),\\
+	\end{cases}
+\end{equation}
+
+\begin{itemize}
+  \item the solutions are globally bounded if $\int_\Omega u_0\dd{x} < 4\pi$ 
+      \blue{Nagai-Senba-Yoshida-1997-FE};
+  \item there exists $u_0$ with $\int_\Omega u_0\dd{x}\in(4\pi,\infty)\setminus4\pi\mathbb{N}$ such that the solution blows up in finite or infinite time \blue{Horstmann-Wang-2001-EJAM}.
+\end{itemize}
+all solutions are global when $\Omega\subset\mathbb{R}$ \blue{Osaki-Yagi-2001-FE}, whereas there exist initial functions with any prescribed mass such that the solutions of \eqref{sys: classical ks} blow up in finite time in higher dimensions \blue{Winkler-2013-JMPA}.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+Chemotactic collapse, blowup in the form of a Dirac-type distribution with quantized mass, can happen in a two-dimensional domain \blue{Nagai-Senba-Suzuki-2000-HMJ; Senba-Suzuki-2001-ADE}.
+\begin{itemize}
+  \item formal expansion \blue{Herrero-Vel\'{a}zquez-1996-MA}
+  \item rigid analysis \blue{Senba-Suzuki-2004-AMSA}
+  \item and special solutions constructed explicitly, \blue{Collot-Ghoul-Masmoudi-Nguyen-2022-CPAM; Mizoguchi-2022-CPAM}
+\end{itemize}
+all suggest that the radial solution \((u,v)\) of \eqref{sys: JL} that blows up in finite time \(T_{\max}\) concentrates quantized mass \(8\pi\) at zero in the form of a Dirac-type function. Precisely, there exists a positive radial function \(f\in L^1(\Omega)\cap C^0(\overline{\Omega}\setminus\{0\})\) such that as \(t\to T_{\max}\), \[
+u(\cdot, t)\weakstar8\pi\delta_0(\cdot) + f
+\]
+in $\mathcal{M}(\overline{\Omega})$, the space of measures on $\overline{\Omega}$,
+where $\delta_0$ denotes the Dirac distribution with unit weight at zero. 
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\eqref{sys: JL} admits no radial solution that blows up in infinite time under two-dimensional settings.
+\begin{itemize}
+\item if a radial solution with supercritical mass blows up, then it happens in finite time \blue{Ohtsuka-Senba-Suzuki-2007-AMSA};
+\item any radial solution with (sub)critical mass exists globally and remains bounded, which approaches to its constant steady state \blue{M-Li-2024-preprint}.
+\end{itemize}
+In sharp contrast with the two-dimensional case, 
+under mild assumptions on the initial data, for $n \geq 3$, \blue{Souplet-Winkler-2019-CMP} showed that the final profile satisfies $C_1|x|^{-2} \leq u(x, T) \leq C_2|x|^{-2}$, with convergence in $L^1$ as $t \rightarrow T$.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Critical mass for infinite-time blowup}
+ \blue{Tao-Winkler-2017-JEMS} first proved that the classical solutions of 
+ \begin{equation}\tag{ISP}
+\begin{cases}
+	\label{sys: isp}
+		u_t = \Delta u - \nabla \cdot(u\nabla v),&  t>0, x\in\Omega,\\
+		0 =  \Delta v - \mu + w,&  t>0, x\in\Omega,	\\
+		w_t + w = u, &  t > 0, x\in\Omega,
+\end{cases}
+\end{equation}
+are global for all continuous and non-negative initial functions $(u_0, w_0)$, and then showed that there exists a novel mass threshold for blowup in infinite time. Precisely, they considered the radial solutions and proved that
+\begin{itemize}
+\item if $\int_\Omega u_0\dd{x} < 8\pi$, then the solution of \eqref{sys: isp} remains bounded;
+\item for any $M > 8\pi$, one can find initial data satisfying $\int_\Omega u_0\dd{x} = M$ and the corresponding solution fulfills that there exist $\alpha,\beta > 0$ such that
+\[
+\|{u(\cdot, t)}\|_{L^\infty(\Omega)} > \alpha e^{\beta t} \quad\text{for all } t>0.
+\]
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\blue{Lauren\c{c}ot-2019-DCDSB} considered the parabolic-parabolic-ODE system
+\begin{equation}\label{sys: ppo indirect signal production}
+	\begin{cases}
+		u_t = \nabla\cdot(\nabla u - u\nabla v), & (x, t)\in \Omega\times(0, T),\\
+		v_t = \Delta v - v + w, & (x, t)\in \Omega\times(0, T),\\
+		w_t = u - w, & (x, t)\in \Omega\times(0, T).
+	\end{cases}
+\end{equation}
+He established  the global well-posedness of non-negative weak solutions of \eqref{sys: ppo indirect signal production} for all nonnegative initial data $(u_0,v_0,w_0)$, and proved that
+\begin{itemize}
+\item $\int_\Omega u_0\dd{x}\in(0, 4\pi)$ implies the solution remains bounded;
+\item there exist non-negative initial functions satisfying $\int_\Omega u_0\dd{x}\in(4\pi,\infty)\setminus4\pi\mathbb{N}$ such that the corresponding solutions $(u,v,w)$ blow up in infinite time, i.e., $$\limsup_{t\to\infty}\|{u}\|_{\infty}=\infty.$$
+\end{itemize}
+In the radial setting, the conclusions above also hold with conditions replaced by $\int_\Omega u_0\dd{x}\in(0, 8\pi)$ and $\int_\Omega u_0\dd{x}\in(8\pi, \infty)$, respectively.
+
+When \(f(u,w)\not\equiv0\), see \blue{Hu-Tao-2016-MMMAS, Lauren\c{c}ot-Stinner-2021-SJMA}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{A novel critical mass phenomenon}
+\blue{Winkler-2019-MA} revealed a new critical mass phenomenon that exists in both two and higher dimensions. Let $n\geqslant 2$, $R>0$ and $\Omega=B_R$. Denote
+\begin{align*}
+	S:=\biggl\{u_0\geqslant0 : &u_0\in C^0(\overline{\Omega}) \text{ is radially symmetric, } \\ &\fint_{B_r}u_0\gneqq \fint_{\Omega}u_0 \text{ for all } r\in(0, R).\biggr\}
+\end{align*}
+there exists a constant $m_c(n, R) > 0$ such that, 
+\begin{itemize}
+    \item if $m>m_c$, then for \alert{all}
+$u_0\in S$
+with $\int_\Omega u_0 = m$, 
+ \eqref{sys: JL} admits a solution blowing up in finite time; 
+    \item but if $m<m_c$, one can find $u_0\in S$ with $\int_\Omega u_0 = m$ such that the corresponding solution of \eqref{sys: JL} exists globally.
+ \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}
+%\begin{equation}\label{H: u_0 for JL}
+%	\begin{aligned}
+%	&0\leq u_0\in C^0(\overline{\Omega}),\text{ radially symmetric,}\\
+%	&\text{\alert{nonincreasing} and  } u_0\not\equiv \text{ const.}
+%	\end{aligned}\tag{$\mathcal{U}_0$}
+%\end{equation}
+%
+%\begin{theorem}[\blue{Souplet, Winkler (2019) CMP}]
+%Let $\Omega=B_R\subset\mathbb{R}^n$, with $R>0$ and $n\geq2$, and let $u_0$ satisfy \eqref{H: u_0 for JL}. Then there exists $C(\lambda_1,n) > 0$ such that if $\|u_0\|_1 > C(\lambda_1, n) R^{n-2}$, then the solution of \eqref{sys: JL} blows up in finite time. Here, $\lambda_1 > 0$ is the first eigenvalue of $-\Delta$ over $B_1\subset\mathbb{R}^{n+2}$ with homogenerous Dirichlet boundary. 
+%\end{theorem}
+%\end{frame}
+
+\begin{frame}{A double critical mass phenomenon}
+ \blue{Fuhrmann-Lankeit-Winkler-2022-JMPA}:
+\begin{align*}
+\begin{cases}\label{sys:N}\tag{N}
+u_t=\Delta u-\chi\nabla \cdot\left( u \nabla v\right), &x\in\Omega, t>0,\\
+0= \Delta v- kv+u,&x\in\Omega, t>0\\
+\frac{\partial u}{\partial \nu}-u\frac{\partial v}{\partial \nu}=v=0, & x \in \partial \Omega, t>0, \\ u(x, 0)=u_0(x)\in C^0(\overline{\Omega}), & x \in \Omega,
+\end{cases}
+\end{align*}
+with $k\geqslant0$, where $\Omega \subset \mathbb{R}^n$ ($n\geqslant2$) is a bounded star-shaped domain with smooth boundary in the sense that
+$$
+\gamma:=\inf _{x \in \partial \Omega} x \cdot \nu(x)>0 .
+$$
+
+There exists $m^\ast(\Omega,k)>0$ such that
+\begin{itemize}
+    \item  for \alert{all} initial data with $\int_\Omega u_0 > m^\ast$, \eqref{sys:N} admits a solution blowing up in finite/infinite time;
+    \item  there exists initial data with $\int_{\Omega} u_0 < m^\ast$ such that the solution of \eqref{sys:N} exists globally and remains bounded.
+\end{itemize}
+\end{frame}
+
+%\begin{frame}
+%\begin{exampleblock}{Example}
+%let $n=2$, then $m_\star=8\pi$ is the classical critical value for blowup of both the chemotaxis system \eqref{sys: JL} and \eqref{sys:N}. For brevity, $m^\star\geqslant8\pi$ denotes the above two novel critical mass. $m_\star$ and $m^\star$ separate three cases.
+%\end{exampleblock}
+%\begin{figure}
+%\centering
+%\includegraphics[width=0.7\linewidth]{double}
+%%\caption{}
+%\label{fig:double}
+%\end{figure}
+%  
+%\end{frame}
+
+%\begin{frame}
+%Later, \blue{Fuhrmann, Lankeit and Winkler (2022) JMPA} found the system \eqref{sys: nagai pe} subjected to a mixed boundary condition
+%has a double critical mass level. These two thresholds separate three ranges: 
+%\begin{itemize}
+%    \item all solutions are globally bounded, 
+%    \item both bounded and exploding solutions exist or 
+%    \item all nontrivial solutions blow up.
+%\end{itemize}
+%\end{frame}
+
+\begin{frame}{Motivation}
+Both \eqref{sys: JL} and \eqref{sys:N} are critical in a planar domain, supercritical in higher dimensions. We considered 
+\begin{equation}\nonumber
+	\left\{
+	\begin{array}{ll}
+		u_t = \Delta u - \nabla\cdot (u(1+u)^{\alpha - 1}\nabla v), & x\in\Omega, t > 0,\\
+		0 = \Delta v - \fint_\Omega u_0 + u, & x\in\Omega, t > 0,
+	\end{array}
+	\right.
+\end{equation}
+with supercritical sensitivity $\alpha\geqslant\frac2n(n\geqslant2)$
+\blue{Winkler-Djie-2010-NA}
+and 
+\begin{equation}\nonumber
+	\begin{cases}
+		u_t = \Delta u - \nabla\cdot (u(1+|\nabla v|^2)^{(\beta - 2)/2}\nabla v), & x\in\Omega, t > 0,\\
+		0 = \Delta v - \fint_\Omega u_0 + u, & x\in\Omega, t > 0,
+	\end{cases}
+\end{equation}
+with supercritical flux limitation \(\beta\in[n/(n-1),2)\) \blue{Winkler-2022-IUMJ}.
+%\begin{itemize}
+%    \item If $\alpha<\frac2n$, all solutions are globally bounded;
+%    \item If $\alpha>\frac2n$, there exists the solution blowing up in finite time. 
+%\end{itemize}
+%
+%\blue{Tao-Winkler-2012-JDE}; \blue{Cie\'slak-Stinner-2015-JDE}; 
+%\blue{Winkler-2022-PLMS}
+
+We found the second critical mass phenomena also exist in chemotaxis systems with supercritical sensitivity 
+\blue{M-Li-2023-MMMAS} and supercritical flux limitation \blue{M-Li-2024-NA}.
+\end{frame}
+
+%\begin{frame}
+% proved that $\alpha=\frac2n$ is a critical exponent of the system \eqref{sys: ks-nonlinear-sensitivity} in the following sense:
+%\begin{itemize}
+%    \item if $\alpha < \frac2n$, all solutions exist globally and remain bounded,
+%    \item if $\alpha > \frac2n$, there exist solutions blowing up in finite time.
+%\end{itemize}
+%$D_u = (1+u)^{\delta-1}$, $S=u(1+u)^{\sigma - 1}$ and $D_v=G=H=1$. Let $\alpha = \sigma + 1 - \delta$.
+%\begin{itemize}
+%    \item the parabolic-parabolic system \eqref{sys: general ks} has unbounded solutions if $\alpha > \frac2n$,  \blue{Horstmann, Winkler (2005) JDE}; \blue{Winkler (2010) MMAS}; \blue{Cie\'{s}lak, Stinner (2015) JDE}; 
+%    \item all solutions of the system \eqref{sys: general ks} exist globally and remain bounded in the case of $\alpha < \frac2n$. \blue{Tao, Winkler (2012) JDE}
+%    \item see \blue{Winkler (2022) PLMS} and \blue{Cao, Gao (2023) JDE} for results on the critical case $\alpha=\frac2n$. 
+%\end{itemize}
+%\end{frame} 

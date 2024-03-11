@@ -1,0 +1,310 @@
+\section{Sketch of proof}
+\begin{frame}{Sketch of proof}
+
+\begin{lemma}[\blue{Tao-Winkler-2017-JEMS}]
+\label{le: global existence and uniqueness}
+	Let $\Omega\subset\mathbb{R}^2$ be a bounded domain with smooth boundary, suppose that $u_0\in C^0(\overline{\Omega})$ and $w_0\in C^1(\overline{\Omega})$ are nonnegative.
+    Then there exists a triple $(u, v, w)$ of nonnegative functions solving \eqref{sys: isp} in the classical sense. $(u, v, w)$ can be uniquely identified by the inclusions		
+	\begin{align*}
+	& u \in C^0(\overline{\Omega} \times[0, \infty)) \cap C^{2,1}(\overline{\Omega} \times(0, \infty)), \\
+	& v \in C^{2,0}(\overline{\Omega} \times[0, \infty)), \\
+	& w \in C^{0,1}(\overline{\Omega} \times[0, \infty))
+	\end{align*}
+and the identity
+\(\int_{\Omega} v(x, t)\dd x=0\) for all  \(t > 0\).
+Furthermore,
+\begin{equation*}
+	\int_{\Omega} u(x, t) \dd {x}=\int_{\Omega} u_{0} \dd x
+    \quad\text{for all } t > 0.
+\end{equation*}
+In particular, if $\Omega = B_1$, both $u_0$ and $w_0$ are radially symmetric, then $u$, $v$ and $w$ are all radially symmetric.
+\end{lemma}
+\end{frame}
+
+\begin{frame}{Mass distribution function}
+\begin{equation}\label{partial mass substitution}
+	w(s, t):=\int_{0}^{s^{\frac{1}{n}}} r^{n-1} u(r, t) \mathrm{d} r, \quad s \in\left[0, R^{n}\right], t \in\left[0, T_{\max }\right)
+\end{equation}
+transfers \eqref{sys: isp}  into the Dirichlet problem
+\begin{align}\label{partial mass pde}
+    \begin{cases}
+		\mathcal{P}(w) = 0, & s \in(0, R^{n}), t \in\left(0, T_{\max }\right)\\
+		w(0, t)=0, \quad w\left(R^{n}, t\right)=\frac{m}{\omega_{n}}, & t \in\left(0, T_{\max }\right)\\
+		w(s, 0) = w_0(s), & s\in(0, R^n), 
+    \end{cases}
+\end{align}
+along with an evident initial condition
+\begin{equation}\label{partial mass initial data}
+	w_0(s) = \int_0^{s^\frac{1}{n}}u_0(r)r^{n-1}\dd r,
+\end{equation}
+where $m = \int_\Omega u_0(x)\dd x$, $\mu = \frac{nm}{\omega_nR^n}$ and
+\[
+\mathcal{P}(w) = w_{t} - n^{2} s^{2-\frac{2}{n}} w_{s s} - nw_{s}(1 + nw_s)^{\alpha -1} (w-\frac\mu n s).  
+\]
+\end{frame}
+
+\begin{frame}
+\begin{lemma}\label{comparision principle}
+	Let $L>0$, $T>0$ and $\alpha\in\mathbb{R}$, and suppose that $\underline{w}$ and $\overline{w}$ are two functions which belong to $C^1([0, L]\times [0, T))$ and satisfy
+	\begin{equation}\nonumber
+		\underline{w}_{s}(s, t)>0 \quad\text { and }\quad \overline{w}(s, t)>0 \quad\text { for all } s \in(0, L) \text { and } t \in(0, T)
+	\end{equation}
+as well as $\underline{w}(\cdot, t) \in W_{\mathrm{loc}}^{2, \infty}((0, L))$ and $\overline{w}(\cdot, t) \in W_{\mathrm{loc}}^{2, \infty}((0, L))$ for all  $t \in(0, T)$.
+If for some constant $\alpha\in\mathbb{R}$,  we have
+    \begin{equation}\nonumber
+		\mathcal{P}(\underline{w}) \leqslant 0\quad\text{and}\quad \mathcal{P}(\overline{w})\geqslant0 
+	\end{equation}
+    for all  $t \in(0, T)$ and a.e. $s \in(0, L)$,
+and if 
+\begin{equation}\nonumber
+	\underline{w}(0, t) \leqslant \overline{w}(0, t)  \quad\text { and } \quad\underline{w}(L, t) \leqslant \overline{w}(L, t) \quad\text { for all } t \in(0, T),
+\end{equation}
+as well as $\underline{w}(s, 0) \leqslant \overline{w}(s, 0)$  for all $s \in(0, L)$,
+then
+\begin{equation}\nonumber
+	\underline{w}(s, t) \leqslant \overline{w}(s, t)  \quad\text { for all } s \in[0, L]  \text { and }  t \in[0, T).
+\end{equation}
+\end{lemma}
+\end{frame}
+
+
+\begin{frame}
+\begin{lemma}\label{monotony in spatial variable}
+    Let $n\geqslant1$, $R>0$ and $\alpha\in\mathbb{R}$.
+	Suppose that $u_0$ satisfies \eqref{H: u_0}. The classical solution $(u, v)$ of \eqref{sys: ks-nonlinear-sensitivity} is radially symmetric, nonnegative and
+	\begin{equation}\label{eq:u decrease}
+		u_{r}(r, t) \leqslant 0, \quad r \in(0, R), t \in\left(0, T_{\max }\right).
+	\end{equation}
+Equivalently,
+	\begin{equation}\nonumber
+		w_{s s}(s, t) \leqslant 0, \quad s \in(0, R^{n}), t \in\left(0, T_{\max }\right),
+	\end{equation}
+where $w$ is given by \eqref{partial mass substitution}.
+\end{lemma}
+\[w(s, t)=\int_{0}^{s^{\frac{1}{n}}} r^{n-1} u(r, t) \mathrm{d} r\Rightarrow nw_s(s,t)=u(s^{\frac1n}, t)\]
+\end{frame}
+
+\begin{frame}
+\begin{lemma}\label{local blowup criterion}
+Let $n\geqslant1$, $m>0$ and $R>0$. If $\alert{\alpha > \frac{2}{n}}$ and $u_0$ satisfies \eqref{H: u_0}, for all $m>0$, there exists $\varepsilon = \varepsilon(\alpha, m, R, n) \in (0, m)$ and $r_\star = r_\star(\alpha, m, R, n)\in (0 , R)$ such that if $u_0$ satisfies
+	\begin{equation}\label{eq:u0 aggregates sufficiently}
+		\int_{B_{R}} u_{0} \dd{x}=m \quad \text { but } \quad \int_{B_{r_{\star}}} u_{0} \dd {x} \geqslant m-\varepsilon
+	\end{equation}
+then the solution $(u, v)$ of \eqref{sys: ks-nonlinear-sensitivity} blows up in finite time.
+\end{lemma}
+Denote
+\begin{equation}
+\nonumber
+\phi(t):= \int_0^{s_0}s^{-\gamma}(s_0-s)w(s,t)\dd s,\quad t\in(0,T_{\max}),
+\end{equation}
+for some $s_0\in(0,R^n)$, where $w$ is given by \eqref{partial mass substitution} and $T_{\max}=T_{\max}(u_0)$ denotes the maximal existence time.
+We use the method in \blue{Winkler (2018) N} to deduce a super-linear ODI of $\phi$.
+\end{frame}
+
+\begin{frame}
+\begin{align*}
+\nonumber
+\phi'(t) &= \int_0^{s_0} n^2s^{2-\frac2n-\gamma}(s_0-s)w_{ss}\dd s \\ &+ \frac1n\int_0^{s_0}\alert{nw_s(nw_s+1)^{\alpha-1}}(nw-\mu s)s^{-\gamma}(s_0-s)\dd s\\
+&\geq \int_0^{s_0} n^2s^{2-\frac2n-\gamma}(s_0-s)w_{ss}\dd s \\ &+ \frac1n\int_0^{s_0}nw_s(nw_s+1)^{\alpha-1}\alert{(nw_ss-\mu s)}s^{-\gamma}(s_0-s)\dd s
+\end{align*}
+\end{frame}
+
+\begin{frame}{Step 1: A continuous family stationary subsolutions}
+\begin{lemma}
+	Let $n\geqslant 2$, $R>0$ and $\alpha\geqslant\frac2n$. Then there exists $m^* = m^*(n, R, \alpha) > 0$ with the following properties: For any choice of $m > m^*$, one can find families $\{s_0^{(\theta)}\}_{\theta\in[0,1)}\subset(0, R^n)$ and $\{\underline{W}^{(\theta)}\}_{\theta\in[0,1)}\subset C^1([0, R^n])$ such that for all $\theta\in(0,1)$, 
+$\underline{W}^{(\theta)} \in C^2([0, R^n]\setminus \{s_0^{(\theta)}\})\cap W^{2, \infty}((0, R^n))$
+and satisfies $\underline{W}^{(\theta)}(0) = 0$, $\underline{W}^{(\theta)}(R^n) = \frac{m}{\omega_n}$ and $\underline{W}_s^{(\theta)}\geqslant 0$ in $(0, R^n)$ as well as
+	\begin{equation}\label{subsolution equation}
+		n^2s^{2-\frac2n}\underline{W}_{ss}^{(\theta)} + n\uwt_s(1 + n\uwt_s)^{\alpha-1} \left(\uwt - \frac{\mu}{n}s\right) > 0
+	\end{equation}
+for all  $s\in(0, R^n)\setminus \{ s_0^{(\theta)}\}$, 	and such that $[0, 1) \ni \theta \mapsto \uwt $ is continuous as a $C^1([0, R^n])$-valued mapping, where
+	\begin{equation}\nonumber
+		\underline{W}^{(0)}(s) = \frac{\mu}{n}s \quad\text{ for all } s\in(0, R^n)
+	\end{equation}
+    and
+	\begin{equation}\nonumber
+		\uwt (s) \rightarrow \frac{m}{\omega_n} \quad\text{ for all } s\in(0, R^n)  \text{ as } \theta\nearrow 1.
+	\end{equation}
+\end{lemma}
+\end{frame}
+
+
+\begin{frame}
+	\begin{equation}\label{eq:m asterisk}
+		m^\ast = \begin{cases}
+			8n\omega_nR^{n-2}, & \alpha\geqslant1,\\	% n=1\text{ or }2,\\
+			32n\omega_nR^{n-2} + (4n)^n\omega_n, & \alpha\in[\frac2n, 1), n > 2.\\
+			\end{cases}
+	\end{equation}
+ Let $m>m^\ast$.
+Define for $\theta\in[0,1)$, $d=d(\theta)=\frac\mu{n}(1-\theta)\in(0,\frac\mu{n}],$
+	\begin{equation}\label{parameter c b s}
+	c = \left(\frac{n}{\mu}d\right)^3, s_0 = \frac{n}{2\mu}dR^n, b = \left(1 - \frac{n}{\mu}d\right)\frac4{R^n}
+	\end{equation}
+	 and
+	\begin{equation}\label{parameter a}
+		a= \frac{d}{c}(bs_0 + c)^2 = \frac{\mu}{n}\left[2\left(1-\frac{n}{\mu}d\right) + \left(\frac{n}{\mu}d\right)^2\right]^2.
+	\end{equation}
+	We define
+	\begin{equation}\label{subsolution with parameter}
+		\uw(s) = 
+		\begin{cases}
+			\frac{as}{bs + c} & s\in[0, s_0),\\
+			\frac{m}{\omega_n} + d(s - R^n) & s\in[s_0, R^n].\\
+		\end{cases}
+	\end{equation}
+
+\end{frame}
+
+\begin{frame}{Step 2: Nonexistence of regular stationary solutions}
+\begin{lemma}\label{constant stationary solution}
+	Let $n\geqslant2$, $R>0$, $\alpha\geqslant\frac2n$ and $m>m^*$, and suppose that $W\in C^2((0, R^n])$ is a nonnegative solution of 
+\begin{equation}
+	\label{one-point boundary value problem}
+	\begin{cases}
+		n^2s^{2-\frac2n}W_{ss} + nW_s(1 + nW_s)^{\alpha -1}\left(W - \frac{\mu}{n}s\right) = 0,& s\in(0,R^n),\\
+		W(R^n) = \frac{m}{\omega_n}, &
+	\end{cases}
+\end{equation}
+ such that $W_s\geqslant 0$ in $(0, R^n)$, and that moreover
+	\begin{equation}\nonumber
+		W(s)\gneqq\frac{\mu}{n}s \quad \text{ for all } s\in(0, R^n).
+	\end{equation}
+Then
+	\begin{equation}\nonumber
+		W(s) \equiv \frac m{\omega_n}\quad \text{ for all } s\in(0, R^n).
+	\end{equation}
+\end{lemma}
+\end{frame}
+
+\begin{frame}
+	Denote 
+	\begin{equation}\nonumber
+	S:=\{\theta\in[0,1): \uwt(s) \leqslant W(s)\text{ for all } s\in(0, R^n)\}
+	\end{equation}
+	where $\uwt$ is a stationary subsolution of \eqref{one-point boundary value problem} constructed earlier. Applying a connectivity argument, we can deduce that $S=[0,1)$.
+
+    If $\theta_0\in S$, then there exists $C>0$ such that $W(s)\geq \underline{W}^{(\theta_0)} + Cs(R^n-s)$ for all $s\in(0,R^n)$. 
+    	Let $Z = W - \underline{W}^{(\theta_0)}\geq0$, then
+	\begin{equation}\nonumber
+		n^2s^{2-\frac2n}Z_{ss} + A(s) Z_s + f(\underline{W}_s) Z\leqslant 0,\quad\text{ a.e. }s\in(0,R^n),
+	\end{equation}
+	\begin{equation}\label{ZDE}
+		Z_s(s_2) \leqslant Z_s(s_1)e^{-\frac1{n^2}\int_{s_1}^{s_2}A(\sigma)\sigma^{\frac2n -2}\dd\sigma}
+	\end{equation}
+for all $s_1\in(0, R^n)$ and $s_2\in(s_1, R^n]$.
+\begin{itemize}
+  \item $Z(s) > 0$ for all $s\in (0, R^n)$
+  \item $Z_s(R^n)<0$,$\liminf_{s\searrow0}Z(s)/s>0$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Step 3: Blowup of solutions emanating from $\uwt$}
+\begin{lemma}\label{subsolution blow up}
+	Given $n\geqslant 2$, $R>0$ and $\alpha\geqslant\frac2n$, let $m > m^*$. For $\theta\in [0, 1)$, let 
+\[
+    w^{(\theta)}\in C^0([0, T_{\max}^{(\theta)}); C^1([0, R^n])) \cap C^{2,1}((0, R^n]\times(0, T_{\max}^{(\theta)}))
+\]
+    denote the solution of the scalar parabolic problem \eqref{partial mass pde}, as obtained through Lemma \ref{local existence and uniqueness} and \eqref{partial mass substitution} when applied to the initial data given by $u_0(r) := n\uwt_s(r^n), r\in [0, R]$, and extended up to its maximal existence time $T_{\max}^{(\theta)} \in (0, \infty]$.
+	Then for any $\theta\in(0,1)$ there  exists a nondecreasing $W^{(\theta)} : (0, R^n]\rightarrow (0, \frac{m}{\omega_n}]$ such that
+	$w^{(\theta)}(s, t) \rightarrow W^{(\theta)}(s) \quad \text { for all } s \in\left(0, R^{n}\right) \text { as } t \nearrow T_{\text {max }}^{(\theta)},$
+and that
+	\begin{equation}\label{W theta blows up}
+		\limsup _{s \searrow 0} \frac{W^{(\theta)}(s)}{s}=+\infty.
+	\end{equation}
+\end{lemma}
+\end{frame}
+
+
+
+\begin{frame}
+\begin{block}{Continued}
+Moreover, if $\alpha > \frac2n$, then $T_{\max}^{(\theta)} < \infty$ for all $\theta\in(0,1)$. But, if $\alpha = \frac2n$, $T_{\max}^{(\theta)} = \infty$ can not be excluded, then for any such $\theta$, $W^{(\theta)}(s) = \frac{m}{\omega_n}$ for all $s\in(0, R^n)$.
+\end{block}
+\begin{enumerate}
+  \item 	We first prove
+	\begin{equation}
+		\label{wtgeq0}
+		w_t^{(\theta)}\geqslant0 \quad\text{ in } (0, R^n)\times(0, T_{\max}^{(\theta)}).
+	\end{equation}
+  \item We assume that $T_{\max}^{(\theta)} = \infty$. There eixsts a bounded measurable function $\varphi$ such that $\varphi(s)\gneqq\frac{\mu}{n}s$, 
+      $$w^{(\theta)}(s, t) \nearrow \varphi(s) \quad\text{ for all } s\in(0, R^n], \text{ as }t\to\infty.$$ $\varphi\in C^{2}_{\mathrm{loc}}((0,R^n])$. $\varphi=\frac{m}{\omega_n}$.
+  \item  If $\alpha>\frac2n$, then by local blowup criterion, $T_{\max}^{(\theta)} < \infty$.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Step 4: large nonincreasing initial data enforcing blowup}
+\begin{enumerate}
+  \item there exist $C > 0$ and $\theta_0\in(0,1)$ such that
+\begin{equation}\nonumber
+			w_0(s) \geqslant \frac{\mu}{n}s + Cs(R^n - s)\geqslant \uw^{(\theta_0)}(s) \quad \text{ for  all } s\in (0, R^n).
+\end{equation}
+  \item Assume the corresponding solution $(u, v)$ of \eqref{sys: ks-nonlinear-sensitivity} exists globally.
+  \begin{equation*}
+	w(s, t) \geqslant w^{(\theta_0)}(s, t) \quad \text{ for all } (s, t)\in[0, R^n]\times[0, T_{\max}^{(\theta_0)}),
+\end{equation*}
+  \item If $T_{\max}^{(\theta_0)} < \infty$, then $w(s, T_{\max}^{(\theta_0)}) \geqslant W^{(\theta_0)}(s)$ for all $s\in(0, R^n)$, 
+and 
+\begin{equation*}
+	\limsup_{s\searrow0}\frac{w(s, T_{\max}^{(\theta_0)})}{s} \geqslant \limsup_{s\searrow0}\frac{W^{(\theta_0)(s)}}{s} = \infty.
+\end{equation*}
+If $T_{\max}^{(\theta_0)} = \infty$, then
+\begin{equation*}
+	\liminf_{t\to\infty}w(s, t) \geqslant \frac{m}{\omega_n}\quad\text{ for all } s\in (0, R^n).
+\end{equation*}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+The same results on blowup hold when ``nonincreasing" is replaced by ``$\alert{\fint_{B_r}u_0\geq \fint_{\Omega}u_0 \text{ for all } r\in(0, R)}$". \blue{Winkler (2019) MA}
+
+Assume the solution exists globally. Let $Z(s,t) := w(s,t) - \frac{\mu}{n}s$, then $Z(s,0)= w_0(s) - \frac{\mu}{n}s\gneqq 0$ for $s\in(0, R^n)$ and $Z(0, t) = Z(R^n, t) = 0$ for $t>0$.
+\begin{align*}
+    Z_t &= n^2s^{2-\frac2n}Z_{ss} + nw_s(1+nw_s)^{\alpha -1}Z\\
+    &\geq n^2s^{2-\frac2n}Z_{ss},
+\end{align*} 
+Choose $\phi\in C_0^{\infty}((0,R^n))$ such that $0\lneqq \phi\leq Z(s, 0)$ and let $\underline{Z}$ be a solution of the system
+\begin{align*}
+    \underline{Z}_t &= n^2s^{2-\frac2n}\underline{Z}_{ss}\\
+    \underline{Z}(0, t) &= \underline{Z}(R^n, t) = 0\\
+    \underline{Z}(s, 0) &= \phi(s) 
+\end{align*}
+ then there exist $t_0, C>0$ such that $Z(s,t_0)\geq \underline{Z}(s, t_0)\geq Cs(R^n-s)$.
+\end{frame}
+
+
+
+
+
+
+
+
+
+\begin{frame}
+\blue{Strohm, Tyson and Powell (2013) BMB}
+\begin{align}
+\begin{cases}
+	\label{sys: ks-p-e-o-isp}
+		u_t = \Delta u - \nabla \cdot(u\nabla v),&  t>0, x\in\Omega,\\
+		0 =  \Delta v - \mu + \alert{w},&  t>0, x\in\Omega,	\\
+		w_t + w = u, &  t > 0, x\in\Omega, \\
+		\partial_\nu u = \partial_\nu v = 0 , & t >0, x\in\partial\Omega,\\
+		u(\cdot, 0) = u_0, w(\cdot, 0) = w_0, & x\in\Omega
+\end{cases}\tag{ISP}
+\end{align}
+\blue{Tao, Winkler (2017) JEMS}
+\begin{itemize}
+  \item let $\Omega\subset\mathbb{R}^2$, the classical solutions of \eqref{sys: ks-p-e-o-isp} are \alert{global} for all non-negative initial functions $(u_0, w_0)\in C^0(\overline{\Omega})\times C^1(\overline{\Omega})$, 
+  \item let $\Omega=B_1\subset\mathbb{R}^2$, there exists a novel mass threshold for blowup in infinite time: 
+        \begin{itemize}
+            \item for radial initial functions with $\int_\Omega u_0 < 8\pi$, the solutions are bounded; 
+            \item there exist radial initial functions with $\int_\Omega u_0 > 8\pi$ such that the solutions are unbounded.
+        \end{itemize}
+\end{itemize}
+\blue{Lauren\c{c}ot (2019) DCDSB} extended the results above to nonradial cases.
+\end{frame}
+
+
+
+

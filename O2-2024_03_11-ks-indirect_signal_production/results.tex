@@ -1,0 +1,55 @@
+\section{Our results}
+\begin{frame}{Our results}
+\begin{equation}\label{h: initial data u0 w0}
+\tag{$\mathcal{I}$}
+	\begin{cases}
+	(u_0, w_0)\in C^0(\overline{\Omega})\times C^1(\overline{\Omega}), \\
+	u_0 \text{ and } w_0\text{ are non-negative, radially symmetric, }\\
+	\fint_0^ru_0\rho\dd {\rho} \gneqq \int_0^1u_0\rho\dd {\rho}, 
+\fint_0^rw_0\rho\dd {\rho} \geqslant \int_0^1w_0\rho\dd {\rho}, r\in(0, 1).
+	\end{cases}
+\end{equation}
+
+\begin{theorem}[\blue{M-Li-2023-DCDSS}]
+	Let $\Omega = B_1$. For arbitrary $(u_0, w_0)$ satisfying \eqref{h: initial data u0 w0} with $m = \int_\Omega u_0 \geqslant32\pi$,  the solution $(u, v, w)$ of \eqref{sys: ks-p-e-o-isp} blows up in infinite time,  i.e., 
+	\begin{equation}\nonumber
+		\lim_{t\to\infty}\|u(\cdot, t)\|_{L^\infty(\Omega)} = \infty.
+	\end{equation}		
+	Precisely, 
+%	\begin{equation}\label{eq: large time behavior of u}
+%	\lim_{t\to\infty}\int_0^ru(\rho, t)\rho\dd {\rho} = \frac{m}{2\pi}\quad\text{for all } r\in(0, 1).
+%	\end{equation}
+%    or rather,
+    as $t\to \infty$
+\begin{equation}\label{eq: dirac delta aggregation}
+u(\cdot, t)\weakstar m\delta_0(\cdot)
+\end{equation}
+in $\mathcal{M}(\overline{\Omega})$, the space of measures on $\overline{\Omega}$,
+where $\delta_0$ denotes the Dirac distribution with unit weight at zero.
+\end{theorem}
+\end{frame} 
+
+\begin{frame}
+
+\begin{corollary}
+	Denote
+	\begin{equation}
+	\begin{split}
+	S:= &\biggl\{ M \geqslant 8\pi :
+        \eqref{sys: isp} \text{ admits an unbounded solution }\\
+    &\quad\text{for all } (u_0, w_0) \text{ satisfying } \eqref{h: initial data u0 w0} \text{ and } M=\int_\Omega u_0\dd{x}\biggr\}.
+	\end{split}
+	\end{equation}
+	Then
+	\[m_c := \inf S\]
+is well-defined and positive. Moreover, $(m_c,\infty)\subset S$.
+\end{corollary}
+
+\begin{block}{Remark}
+  We point out that subsolutions  constructed in Section 6 of [Y.Tao and M.Winkler, J. Eur. Math. Soc., 19 (2017), 3641-3678] imply the existence of radial solutions to \eqref{sys: isp} satisfying \eqref{eq: dirac delta aggregation} with $m\in(8\pi,\infty)$, which is not stated explicitly there.
+\end{block}
+
+\end{frame}
+
+
+

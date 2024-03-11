@@ -1,0 +1,5 @@
+# Dirac-type aggregation with full mass in a chemotaxis model
+
+ 
+
+This paper is concerned with a simplified variant of the Strohm et~al. model, which describes the temporal and spatial evolution of the density of flying beetles affected by beetle pheromones, secreted by nesting beetles. Due to Tao and Winkler [Y.Tao and M.Winkler, J. Eur. Math. Soc., 19 (2017), 3641–3678], this model, a chemotaxis system with indirect signal mechanism, has a novel phenomenon of critical mass $8\pi$ for blowup of radial solutions in infinite time and shows a close bond with the J\"{a}ger and Luckhaus model. We improve their results for blowup by relaxation of conditions on initial data and accurate description of blowup profile at infinite time. In general, we prove that for any regular and radial initial data with large mass more concentrating than its average mass, the solution approaches to a Dirac-type chemotactic collapse with full mass at zero as time goes to infinity.
