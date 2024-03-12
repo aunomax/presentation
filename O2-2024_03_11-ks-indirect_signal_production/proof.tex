@@ -26,7 +26,7 @@ In particular, if $\Omega = B_1$, both $u_0$ and $w_0$ are radially symmetric, t
 	U(\xi, t):=\int_{0}^{\sqrt\xi} r u(r, t) \mathrm{d} r, \quad \xi \in\left[0, 1\right], t \in\left[0, \infty\right)
 \end{equation}
 transfers \eqref{sys: isp}  into the Dirichlet problem
-\begin{align}\label{partial mass pde}
+\begin{align}\label{sys: partial mass pde}
     \begin{cases}
 		\mathcal{P}(U) = 0, & \xi \in(0, 1), t \in\left(0, \infty\right)\\
 		U(0, t)=0, \quad U\left(1, t\right)=\frac{m}{2\pi}, & t \in\left(0, \infty\right)\\
@@ -131,141 +131,130 @@ the component $u$ of which is transformed by the mass distribution function \eqr
 	\end{equation}
 \end{block}
 
-Define for $\theta\in[0,1)$, $d=d(\theta)=\frac\mu{n}(1-\theta)\in(0,\frac\mu{n}],$
+	Fixing $m\geqslant32\pi$, for $\theta\in[0,1)$ and $d=d(\theta)=\frac{m(1-\theta)}{2\pi}\in(0,\frac{m}{2\pi}]$, we denote
 	\begin{equation}\label{parameter c b s}
-	c = \left(\frac{n}{\mu}d\right)^3, s_0 = \frac{n}{2\mu}dR^n, b = \left(1 - \frac{n}{\mu}d\right)\frac4{R^n}
+	c = \left(\frac{2\pi d}m\right)^3, \xi_0 = \frac{\pi d}m, b = 4\left(1 - \frac{2\pi d}m\right)
 	\end{equation}
 	 and
 	\begin{equation}\label{parameter a}
-		a= \frac{d}{c}(bs_0 + c)^2 = \frac{\mu}{n}\left[2\left(1-\frac{n}{\mu}d\right) + \left(\frac{n}{\mu}d\right)^2\right]^2.
+		a= \frac{d}{c}(b\xi_0 + c)^2 = \frac{m}{2\pi}\left(2\left(1-\frac{2\pi d}m\right) + \left(\frac{2\pi d}m\right)^2\right)^2.
 	\end{equation}
-	We define
-	\begin{equation}\label{subsolution with parameter}
-		\uw(s) = 
+We define
+	\begin{equation}\label{eq: subsolution with parameter}
+		\uut =
 		\begin{cases}
-			\frac{as}{bs + c} & s\in[0, s_0),\\
-			\frac{m}{\omega_n} + d(s - R^n) & s\in[s_0, R^n].\\
+			\frac{a\xi}{b\xi + c} & \xi\in[0, \xi_0),\\
+			\frac{m}{2\pi} + d(\xi - 1) & \xi\in[\xi_0, 1].\\
 		\end{cases}
 	\end{equation}
-
 \end{frame}
 
 \begin{frame}{Step 2: Nonexistence of regular stationary solutions}
-\begin{lemma}\label{constant stationary solution}
-	Let $n\geqslant2$, $R>0$, $\alpha\geqslant\frac2n$ and $m>m^*$, and suppose that $W\in C^2((0, R^n])$ is a nonnegative solution of 
+\begin{lemma}\label{le: constant stationary solution}
+	Let $m\geqslant32\pi$, and suppose that $\mathscr U\in C^2((0, 1])$ is a nonnegative solution of
 \begin{equation}
-	\label{one-point boundary value problem}
+	\label{sys: one-point boundary value problem}
 	\begin{cases}
-		n^2s^{2-\frac2n}W_{ss} + nW_s(1 + nW_s)^{\alpha -1}\left(W - \frac{\mu}{n}s\right) = 0,& s\in(0,R^n),\\
-		W(R^n) = \frac{m}{\omega_n}, &
+		4\xi \mathscr U_{\xi\xi} + 2\left(\mathscr U - \frac{m\xi}{2\pi}\right)\mathscr U_\xi = 0,& \xi\in(0,1),\\
+		\mathscr U(1) = \frac{m}{2\pi},
 	\end{cases}
 \end{equation}
- such that $W_s\geqslant 0$ in $(0, R^n)$, and that moreover
-	\begin{equation}\nonumber
-		W(s)\gneqq\frac{\mu}{n}s \quad \text{ for all } s\in(0, R^n).
-	\end{equation}
+ such that $\mathscr U_\xi\geqslant 0$ in $(0, 1)$, and that moreover
+	\begin{equation*}
+		\mathscr U(\xi)\geqslant\frac{m\xi}{2\pi} \quad\text{for all } \xi\in(0, 1),
+	\end{equation*}
+but
+	\begin{equation*}
+		\mathscr U(\xi)\not\equiv\frac{m\xi}{2\pi}.
+	\end{equation*}
 Then
-	\begin{equation}\nonumber
-		W(s) \equiv \frac m{\omega_n}\quad \text{ for all } s\in(0, R^n).
-	\end{equation}
+	\begin{equation*}
+		\mathscr U(\xi) \equiv \frac m{2\pi}\quad\text{for all } \xi\in(0, 1).
+	\end{equation*}
 \end{lemma}
 \end{frame}
 
 \begin{frame}
-	Denote 
-	\begin{equation}\nonumber
-	S:=\{\theta\in[0,1): \uwt(s) \leqslant W(s)\text{ for all } s\in(0, R^n)\}
-	\end{equation}
-	where $\uwt$ is a stationary subsolution of \eqref{one-point boundary value problem} constructed earlier. Applying a connectivity argument, we can deduce that $S=[0,1)$.
+	Define $$S:=\{\theta\in[0,1)\mid\uut\leqslant\mathscr U\},$$
+	where $\uut$ is defined as in the lemma of \textbf{Step 1}.
 
-    If $\theta_0\in S$, then there exists $C>0$ such that $W(s)\geq \underline{W}^{(\theta_0)} + Cs(R^n-s)$ for all $s\in(0,R^n)$. 
-    	Let $Z = W - \underline{W}^{(\theta_0)}\geq0$, then
-	\begin{equation}\nonumber
-		n^2s^{2-\frac2n}Z_{ss} + A(s) Z_s + f(\underline{W}_s) Z\leqslant 0,\quad\text{ a.e. }s\in(0,R^n),
-	\end{equation}
-	\begin{equation}\label{ZDE}
-		Z_s(s_2) \leqslant Z_s(s_1)e^{-\frac1{n^2}\int_{s_1}^{s_2}A(\sigma)\sigma^{\frac2n -2}\dd\sigma}
-	\end{equation}
-for all $s_1\in(0, R^n)$ and $s_2\in(s_1, R^n]$.
-\begin{itemize}
-  \item $Z(s) > 0$ for all $s\in (0, R^n)$
-  \item $Z_s(R^n)<0$,$\liminf_{s\searrow0}Z(s)/s>0$
-\end{itemize}
+	We claim that $S$ is identical with $[0,1)$ by a connectivity argument, which combining with \eqref{eq:uut pp converges to m/2pi}, i.e.,
+\begin{equation*}
+  		\uut (\xi) \rightarrow \frac{m}{2\pi} \quad\text{for all } \xi\in(0, 1) \text{ as } \theta\nearrow 1.
+\end{equation*}
+ implies that $\mathscr U$ is coincided with $\frac{m}{2\pi}$.
 
 \end{frame}
 
-\begin{frame}{Step 3: Blowup of solutions emanating from $\uwt$}
-\begin{lemma}\label{subsolution blow up}
-	Given $n\geqslant 2$, $R>0$ and $\alpha\geqslant\frac2n$, let $m > m^*$. For $\theta\in [0, 1)$, let 
+\begin{frame}{Step 3: Blowup of solutions emanating from $\uut$}
+\begin{lemma}\label{le: subsolution blow up}
+	Let $\theta_0\in(0,1)$ and for $m \geqslant32\pi$, the family
 \[
-    w^{(\theta)}\in C^0([0, T_{\max}^{(\theta)}); C^1([0, R^n])) \cap C^{2,1}((0, R^n]\times(0, T_{\max}^{(\theta)}))
+    \{\uut\}_{\theta\in(0,1)}\subset C^1([0, 1])\cap W^{2, \infty}((0, 1])
 \]
-    denote the solution of the scalar parabolic problem \eqref{partial mass pde}, as obtained through Lemma \ref{local existence and uniqueness} and \eqref{partial mass substitution} when applied to the initial data given by $u_0(r) := n\uwt_s(r^n), r\in [0, R]$, and extended up to its maximal existence time $T_{\max}^{(\theta)} \in (0, \infty]$.
-	Then for any $\theta\in(0,1)$ there  exists a nondecreasing $W^{(\theta)} : (0, R^n]\rightarrow (0, \frac{m}{\omega_n}]$ such that
-	$w^{(\theta)}(s, t) \rightarrow W^{(\theta)}(s) \quad \text { for all } s \in\left(0, R^{n}\right) \text { as } t \nearrow T_{\text {max }}^{(\theta)},$
-and that
-	\begin{equation}\label{W theta blows up}
-		\limsup _{s \searrow 0} \frac{W^{(\theta)}(s)}{s}=+\infty.
-	\end{equation}
+and $w_0$ be as in Lemma~\ref{le: stationary subsolution}.
+For $\theta\in (0, \theta_0]$, let
+\[
+    U^{(\theta)}\in C^0([0, \infty); C^1([0, 1])) \cap C^{2,1}((0, 1]\times(0, \infty))
+\]
+denote the global solution of \eqref{sys: partial mass pde},
+as obtained through Lemma~\ref{le: global existence and uniqueness} (global existence) and the mass distribution function \eqref{eq: mass distribution function} when applied to the initial data given by $u_0(r) := 2\uut_\xi(r^2), r\in [0, 1]$.
+	Then for any $\theta\in(0,\theta_0]$
+	\begin{equation*}
+		U^{(\theta)}(\xi, t) \rightarrow \frac{m}{2\pi}
+        \quad\text {for all } \xi \in(0, 1) \text { as } t\to\infty.
+	\end{equation*}
 \end{lemma}
 \end{frame}
 
 
 
 \begin{frame}
-\begin{block}{Continued}
-Moreover, if $\alpha > \frac2n$, then $T_{\max}^{(\theta)} < \infty$ for all $\theta\in(0,1)$. But, if $\alpha = \frac2n$, $T_{\max}^{(\theta)} = \infty$ can not be excluded, then for any such $\theta$, $W^{(\theta)}(s) = \frac{m}{\omega_n}$ for all $s\in(0, R^n)$.
-\end{block}
+
 \begin{enumerate}
   \item 	We first prove
-	\begin{equation}
-		\label{wtgeq0}
-		w_t^{(\theta)}\geqslant0 \quad\text{ in } (0, R^n)\times(0, T_{\max}^{(\theta)}).
-	\end{equation}
-  \item We assume that $T_{\max}^{(\theta)} = \infty$. There eixsts a bounded measurable function $\varphi$ such that $\varphi(s)\gneqq\frac{\mu}{n}s$, 
-      $$w^{(\theta)}(s, t) \nearrow \varphi(s) \quad\text{ for all } s\in(0, R^n], \text{ as }t\to\infty.$$ $\varphi\in C^{2}_{\mathrm{loc}}((0,R^n])$. $\varphi=\frac{m}{\omega_n}$.
-  \item  If $\alpha>\frac2n$, then by local blowup criterion, $T_{\max}^{(\theta)} < \infty$.
+	\begin{equation*}
+U_t^{(\theta)}(\xi, t)\geqslant0 \quad\text{in } (0, 1)\times(0, \infty).
+	\end{equation*}
+Noting $0\leqslant U^{(\theta)} \leqslant \frac{m}{2\pi}$, there exists a bounded and nondecreasing function $\mathscr U^{(\theta)}:(0,1]\mapsto(0,\frac{m}{2\pi}]$ such that $\mathscr U^{(\theta)}\gneqq\frac{m\xi}{2\pi}$ and
+\[
+    U^{(\theta)}(\xi, t) \nearrow \mathscr U^{(\theta)}(\xi)
+    \quad\text{for all } \xi\in(0,1), \text{ as }  t\to\infty.
+\]
+  \item By parabolic regularity theory and compactness arguments, we have 
+      $$U^{(\theta)}(\xi, t) \to \uut \quad\text{ in } C^2_{\mathrm{loc}}((0, 1]), \text{ as }t\to\infty.$$ 
+      and
+      $$U^{(\theta)}_t(\xi, t) \to 0 \quad\text{ in } C^0_{\mathrm{loc}}((0, 1]), \text{ as }t\to\infty.$$ 
+  \item By L'Hospital's rule, we obtain that $\uut$ solves the one-point boundary problem \eqref{sys: one-point boundary value problem}. Thanks to nonexistence of regular stationary solutions, we get $\uut\equiv\frac{m}{2\pi}$.
 \end{enumerate}
 \end{frame}
 
-\begin{frame}{Step 4: large nonincreasing initial data enforcing blowup}
+\begin{frame}{Step 4: Refined initial conditions for aggregation}
 \begin{enumerate}
-  \item there exist $C > 0$ and $\theta_0\in(0,1)$ such that
-\begin{equation}\nonumber
-			w_0(s) \geqslant \frac{\mu}{n}s + Cs(R^n - s)\geqslant \uw^{(\theta_0)}(s) \quad \text{ for  all } s\in (0, R^n).
-\end{equation}
-  \item Assume the corresponding solution $(u, v)$ of \eqref{sys: ks-nonlinear-sensitivity} exists globally.
-  \begin{equation*}
-	w(s, t) \geqslant w^{(\theta_0)}(s, t) \quad \text{ for all } (s, t)\in[0, R^n]\times[0, T_{\max}^{(\theta_0)}),
-\end{equation*}
-  \item If $T_{\max}^{(\theta_0)} < \infty$, then $w(s, T_{\max}^{(\theta_0)}) \geqslant W^{(\theta_0)}(s)$ for all $s\in(0, R^n)$, 
-and 
-\begin{equation*}
-	\limsup_{s\searrow0}\frac{w(s, T_{\max}^{(\theta_0)})}{s} \geqslant \limsup_{s\searrow0}\frac{W^{(\theta_0)(s)}}{s} = \infty.
-\end{equation*}
-If $T_{\max}^{(\theta_0)} = \infty$, then
-\begin{equation*}
-	\liminf_{t\to\infty}w(s, t) \geqslant \frac{m}{\omega_n}\quad\text{ for all } s\in (0, R^n).
-\end{equation*}
+  \item Adopting the argument of Lemma~3.12 in \blue{Winkler-2019-MA}, we deduce from initial conditions \eqref{h: initial data u0 w0} that there exist $C > 0$ and $t_0>0$ such that
+      \[
+      U(\xi , t_0) \geqslant \frac{m\xi}{2\pi} + 2C\xi(1 - \xi)
+\quad\text{for all } \xi\in (0, 1),
+\]
+and consequently
+\(
+W_{t_0} - K_{t_0}\xi \geqslant  C_1\xi(1-\xi)\) for some \(C_1>0\).
+  \item Let $\tilde{U}:= U(\xi, t + t_0)$, then $\tilde{U}$ solves 
+      \[
+      \mathcal{P}(\tilde{U}, w(\xi, t_0)) = 0,\quad(\xi, t)\in(0,1)\times(0,\infty).
+      \]
+      By \textbf{Step 1}, there exists \(\theta_0\in(0,1)\) such that \(\underline{\mathscr U}^{(\theta_0)}\) is a subsolution of $\mathcal{P}(\tilde{U}, w(\xi, t_0)) = 0$.
+  \item By \textbf{Step 3}, we have
+  \[
+    \frac{m}{2\pi} = \lim_{t\to\infty}U^{(\theta_0)}\leqslant\liminf_{t\to\infty}\tilde{U}\leqslant\limsup_{t\to\infty}\tilde{U}\leqslant\frac{m}{2\pi} \quad\text{for all } \xi\in(0,1),
+\]
+and hence
+\[
+    \lim_{t\to\infty}U=\frac{m}{2\pi}\quad\text{for all } \xi\in(0, 1).
+\]
 \end{enumerate}
 \end{frame}
 
-\begin{frame}
-The same results on blowup hold when ``nonincreasing" is replaced by ``$\alert{\fint_{B_r}u_0\geq \fint_{\Omega}u_0 \text{ for all } r\in(0, R)}$". \blue{Winkler (2019) MA}
-
-Assume the solution exists globally. Let $Z(s,t) := w(s,t) - \frac{\mu}{n}s$, then $Z(s,0)= w_0(s) - \frac{\mu}{n}s\gneqq 0$ for $s\in(0, R^n)$ and $Z(0, t) = Z(R^n, t) = 0$ for $t>0$.
-\begin{align*}
-    Z_t &= n^2s^{2-\frac2n}Z_{ss} + nw_s(1+nw_s)^{\alpha -1}Z\\
-    &\geq n^2s^{2-\frac2n}Z_{ss},
-\end{align*} 
-Choose $\phi\in C_0^{\infty}((0,R^n))$ such that $0\lneqq \phi\leq Z(s, 0)$ and let $\underline{Z}$ be a solution of the system
-\begin{align*}
-    \underline{Z}_t &= n^2s^{2-\frac2n}\underline{Z}_{ss}\\
-    \underline{Z}(0, t) &= \underline{Z}(R^n, t) = 0\\
-    \underline{Z}(s, 0) &= \phi(s) 
-\end{align*}
- then there exist $t_0, C>0$ such that $Z(s,t_0)\geq \underline{Z}(s, t_0)\geq Cs(R^n-s)$.
-\end{frame}
 
 
 
@@ -275,29 +264,30 @@ Choose $\phi\in C_0^{\infty}((0,R^n))$ such that $0\lneqq \phi\leq Z(s, 0)$ and 
 
 
 
-\begin{frame}
-\blue{Strohm, Tyson and Powell (2013) BMB}
-\begin{align}
-\begin{cases}
-	\label{sys: ks-p-e-o-isp}
-		u_t = \Delta u - \nabla \cdot(u\nabla v),&  t>0, x\in\Omega,\\
-		0 =  \Delta v - \mu + \alert{w},&  t>0, x\in\Omega,	\\
-		w_t + w = u, &  t > 0, x\in\Omega, \\
-		\partial_\nu u = \partial_\nu v = 0 , & t >0, x\in\partial\Omega,\\
-		u(\cdot, 0) = u_0, w(\cdot, 0) = w_0, & x\in\Omega
-\end{cases}\tag{ISP}
-\end{align}
-\blue{Tao, Winkler (2017) JEMS}
-\begin{itemize}
-  \item let $\Omega\subset\mathbb{R}^2$, the classical solutions of \eqref{sys: ks-p-e-o-isp} are \alert{global} for all non-negative initial functions $(u_0, w_0)\in C^0(\overline{\Omega})\times C^1(\overline{\Omega})$, 
-  \item let $\Omega=B_1\subset\mathbb{R}^2$, there exists a novel mass threshold for blowup in infinite time: 
-        \begin{itemize}
-            \item for radial initial functions with $\int_\Omega u_0 < 8\pi$, the solutions are bounded; 
-            \item there exist radial initial functions with $\int_\Omega u_0 > 8\pi$ such that the solutions are unbounded.
-        \end{itemize}
-\end{itemize}
-\blue{Lauren\c{c}ot (2019) DCDSB} extended the results above to nonradial cases.
-\end{frame}
+
+%\begin{frame}
+%\blue{Strohm, Tyson and Powell (2013) BMB}
+%\begin{align}
+%\begin{cases}
+%	\label{sys: ks-p-e-o-isp}
+%		u_t = \Delta u - \nabla \cdot(u\nabla v),&  t>0, x\in\Omega,\\
+%		0 =  \Delta v - \mu + \alert{w},&  t>0, x\in\Omega,	\\
+%		w_t + w = u, &  t > 0, x\in\Omega, \\
+%		\partial_\nu u = \partial_\nu v = 0 , & t >0, x\in\partial\Omega,\\
+%		u(\cdot, 0) = u_0, w(\cdot, 0) = w_0, & x\in\Omega
+%\end{cases}\tag{ISP}
+%\end{align}
+%\blue{Tao, Winkler (2017) JEMS}
+%\begin{itemize}
+%  \item let $\Omega\subset\mathbb{R}^2$, the classical solutions of \eqref{sys: ks-p-e-o-isp} are \alert{global} for all non-negative initial functions $(u_0, w_0)\in C^0(\overline{\Omega})\times C^1(\overline{\Omega})$, 
+%  \item let $\Omega=B_1\subset\mathbb{R}^2$, there exists a novel mass threshold for blowup in infinite time: 
+%        \begin{itemize}
+%            \item for radial initial functions with $\int_\Omega u_0 < 8\pi$, the solutions are bounded; 
+%            \item there exist radial initial functions with $\int_\Omega u_0 > 8\pi$ such that the solutions are unbounded.
+%        \end{itemize}
+%\end{itemize}
+%\blue{Lauren\c{c}ot (2019) DCDSB} extended the results above to nonradial cases.
+%\end{frame}
 
 
 
