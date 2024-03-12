@@ -146,19 +146,19 @@ are global for all continuous and non-negative initial functions $(u_0, w_0)$, a
 \blue{Lauren\c{c}ot-2019-DCDSB} considered the parabolic-parabolic-ODE system
 \begin{equation}\label{sys: ppo indirect signal production}
 	\begin{cases}
-		u_t = \nabla\cdot(\nabla u - u\nabla v), & (x, t)\in \Omega\times(0, T),\\
+		u_t = \nabla\cdot(\nabla u - u\nabla v) + f(u,w), & (x, t)\in \Omega\times(0, T),\\
 		v_t = \Delta v - v + w, & (x, t)\in \Omega\times(0, T),\\
 		w_t = u - w, & (x, t)\in \Omega\times(0, T).
 	\end{cases}
 \end{equation}
-He established  the global well-posedness of non-negative weak solutions of \eqref{sys: ppo indirect signal production} for all nonnegative initial data $(u_0,v_0,w_0)$, and proved that
+When \(f(u,w)\equiv0\), he established  the global well-posedness of non-negative weak solutions of \eqref{sys: ppo indirect signal production} for all nonnegative initial data $(u_0,v_0,w_0)$, and proved that
 \begin{itemize}
 \item $\int_\Omega u_0\dd{x}\in(0, 4\pi)$ implies the solution remains bounded;
 \item there exist non-negative initial functions satisfying $\int_\Omega u_0\dd{x}\in(4\pi,\infty)\setminus4\pi\mathbb{N}$ such that the corresponding solutions $(u,v,w)$ blow up in infinite time, i.e., $$\limsup_{t\to\infty}\|{u}\|_{\infty}=\infty.$$
 \end{itemize}
 In the radial setting, the conclusions above also hold with conditions replaced by $\int_\Omega u_0\dd{x}\in(0, 8\pi)$ and $\int_\Omega u_0\dd{x}\in(8\pi, \infty)$, respectively.
 
-When \(f(u,w)\not\equiv0\), see \blue{Hu-Tao-2016-MMMAS, Lauren\c{c}ot-Stinner-2021-SJMA}
+When \(f(u,w)=\mu u(1-u)\), see \blue{Hu-Tao-2016-MMMAS}, and \(f(u,w) = w - u\), see \blue{Lauren\c{c}ot-Stinner-2021-SJMA}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

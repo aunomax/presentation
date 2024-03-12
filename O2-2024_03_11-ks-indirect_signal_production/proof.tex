@@ -22,121 +22,115 @@ In particular, if $\Omega = B_1$, both $u_0$ and $w_0$ are radially symmetric, t
 \end{frame}
 
 \begin{frame}{Mass distribution function}
-\begin{equation}\label{partial mass substitution}
-	w(s, t):=\int_{0}^{s^{\frac{1}{n}}} r^{n-1} u(r, t) \mathrm{d} r, \quad s \in\left[0, R^{n}\right], t \in\left[0, T_{\max }\right)
+\begin{equation}\label{eq: mass distribution function}
+	U(\xi, t):=\int_{0}^{\sqrt\xi} r u(r, t) \mathrm{d} r, \quad \xi \in\left[0, 1\right], t \in\left[0, \infty\right)
 \end{equation}
 transfers \eqref{sys: isp}  into the Dirichlet problem
 \begin{align}\label{partial mass pde}
     \begin{cases}
-		\mathcal{P}(w) = 0, & s \in(0, R^{n}), t \in\left(0, T_{\max }\right)\\
-		w(0, t)=0, \quad w\left(R^{n}, t\right)=\frac{m}{\omega_{n}}, & t \in\left(0, T_{\max }\right)\\
-		w(s, 0) = w_0(s), & s\in(0, R^n), 
+		\mathcal{P}(U) = 0, & \xi \in(0, 1), t \in\left(0, \infty\right)\\
+		U(0, t)=0, \quad U\left(1, t\right)=\frac{m}{2\pi}, & t \in\left(0, \infty\right)\\
+		U(\xi, 0) = U_0(\xi), & \xi\in(0, 1), 
     \end{cases}
 \end{align}
 along with an evident initial condition
 \begin{equation}\label{partial mass initial data}
-	w_0(s) = \int_0^{s^\frac{1}{n}}u_0(r)r^{n-1}\dd r,
+	U_0(\xi) = \int_0^{\sqrt\xi}u_0(r)r\dd r,
 \end{equation}
-where $m = \int_\Omega u_0(x)\dd x$, $\mu = \frac{nm}{\omega_nR^n}$ and
-\[
-\mathcal{P}(w) = w_{t} - n^{2} s^{2-\frac{2}{n}} w_{s s} - nw_{s}(1 + nw_s)^{\alpha -1} (w-\frac\mu n s).  
-\]
-\end{frame}
-
-\begin{frame}
-\begin{lemma}\label{comparision principle}
-	Let $L>0$, $T>0$ and $\alpha\in\mathbb{R}$, and suppose that $\underline{w}$ and $\overline{w}$ are two functions which belong to $C^1([0, L]\times [0, T))$ and satisfy
-	\begin{equation}\nonumber
-		\underline{w}_{s}(s, t)>0 \quad\text { and }\quad \overline{w}(s, t)>0 \quad\text { for all } s \in(0, L) \text { and } t \in(0, T)
-	\end{equation}
-as well as $\underline{w}(\cdot, t) \in W_{\mathrm{loc}}^{2, \infty}((0, L))$ and $\overline{w}(\cdot, t) \in W_{\mathrm{loc}}^{2, \infty}((0, L))$ for all  $t \in(0, T)$.
-If for some constant $\alpha\in\mathbb{R}$,  we have
-    \begin{equation}\nonumber
-		\mathcal{P}(\underline{w}) \leqslant 0\quad\text{and}\quad \mathcal{P}(\overline{w})\geqslant0 
-	\end{equation}
-    for all  $t \in(0, T)$ and a.e. $s \in(0, L)$,
-and if 
-\begin{equation}\nonumber
-	\underline{w}(0, t) \leqslant \overline{w}(0, t)  \quad\text { and } \quad\underline{w}(L, t) \leqslant \overline{w}(L, t) \quad\text { for all } t \in(0, T),
-\end{equation}
-as well as $\underline{w}(s, 0) \leqslant \overline{w}(s, 0)$  for all $s \in(0, L)$,
-then
-\begin{equation}\nonumber
-	\underline{w}(s, t) \leqslant \overline{w}(s, t)  \quad\text { for all } s \in[0, L]  \text { and }  t \in[0, T).
-\end{equation}
-\end{lemma}
-\end{frame}
-
-
-\begin{frame}
-\begin{lemma}\label{monotony in spatial variable}
-    Let $n\geqslant1$, $R>0$ and $\alpha\in\mathbb{R}$.
-	Suppose that $u_0$ satisfies \eqref{H: u_0}. The classical solution $(u, v)$ of \eqref{sys: ks-nonlinear-sensitivity} is radially symmetric, nonnegative and
-	\begin{equation}\label{eq:u decrease}
-		u_{r}(r, t) \leqslant 0, \quad r \in(0, R), t \in\left(0, T_{\max }\right).
-	\end{equation}
-Equivalently,
-	\begin{equation}\nonumber
-		w_{s s}(s, t) \leqslant 0, \quad s \in(0, R^{n}), t \in\left(0, T_{\max }\right),
-	\end{equation}
-where $w$ is given by \eqref{partial mass substitution}.
-\end{lemma}
-\[w(s, t)=\int_{0}^{s^{\frac{1}{n}}} r^{n-1} u(r, t) \mathrm{d} r\Rightarrow nw_s(s,t)=u(s^{\frac1n}, t)\]
-\end{frame}
-
-\begin{frame}
-\begin{lemma}\label{local blowup criterion}
-Let $n\geqslant1$, $m>0$ and $R>0$. If $\alert{\alpha > \frac{2}{n}}$ and $u_0$ satisfies \eqref{H: u_0}, for all $m>0$, there exists $\varepsilon = \varepsilon(\alpha, m, R, n) \in (0, m)$ and $r_\star = r_\star(\alpha, m, R, n)\in (0 , R)$ such that if $u_0$ satisfies
-	\begin{equation}\label{eq:u0 aggregates sufficiently}
-		\int_{B_{R}} u_{0} \dd{x}=m \quad \text { but } \quad \int_{B_{r_{\star}}} u_{0} \dd {x} \geqslant m-\varepsilon
-	\end{equation}
-then the solution $(u, v)$ of \eqref{sys: ks-nonlinear-sensitivity} blows up in finite time.
-\end{lemma}
-Denote
-\begin{equation}
-\nonumber
-\phi(t):= \int_0^{s_0}s^{-\gamma}(s_0-s)w(s,t)\dd s,\quad t\in(0,T_{\max}),
-\end{equation}
-for some $s_0\in(0,R^n)$, where $w$ is given by \eqref{partial mass substitution} and $T_{\max}=T_{\max}(u_0)$ denotes the maximal existence time.
-We use the method in \blue{Winkler (2018) N} to deduce a super-linear ODI of $\phi$.
-\end{frame}
-
-\begin{frame}
+where $m = \int_\Omega u_0(x)$, $W_t(\xi):=\int_0^{\sqrt\xi}w(r, t) r\dd {r}$, $K_t:= W_t(1)$ and
 \begin{align*}
-\nonumber
-\phi'(t) &= \int_0^{s_0} n^2s^{2-\frac2n-\gamma}(s_0-s)w_{ss}\dd s \\ &+ \frac1n\int_0^{s_0}\alert{nw_s(nw_s+1)^{\alpha-1}}(nw-\mu s)s^{-\gamma}(s_0-s)\dd s\\
-&\geq \int_0^{s_0} n^2s^{2-\frac2n-\gamma}(s_0-s)w_{ss}\dd s \\ &+ \frac1n\int_0^{s_0}nw_s(nw_s+1)^{\alpha-1}\alert{(nw_ss-\mu s)}s^{-\gamma}(s_0-s)\dd s
+\mathcal{P}(U, w_0) &:= U_t - 4 \xi U_{\xi \xi} - 2\left\{\int_0^t e^{-(t-s)}\left(U(\xi, s)-\frac{m\xi}{2 \pi}\right) \dd {s}\right\} \cdot U_{\xi} \\
+&\quad - 2(W_0(\xi)-K_0 \xi) \cdot e^{-t} U_{\xi}.
 \end{align*}
 \end{frame}
 
-\begin{frame}{Step 1: A continuous family stationary subsolutions}
-\begin{lemma}
-	Let $n\geqslant 2$, $R>0$ and $\alpha\geqslant\frac2n$. Then there exists $m^* = m^*(n, R, \alpha) > 0$ with the following properties: For any choice of $m > m^*$, one can find families $\{s_0^{(\theta)}\}_{\theta\in[0,1)}\subset(0, R^n)$ and $\{\underline{W}^{(\theta)}\}_{\theta\in[0,1)}\subset C^1([0, R^n])$ such that for all $\theta\in(0,1)$, 
-$\underline{W}^{(\theta)} \in C^2([0, R^n]\setminus \{s_0^{(\theta)}\})\cap W^{2, \infty}((0, R^n))$
-and satisfies $\underline{W}^{(\theta)}(0) = 0$, $\underline{W}^{(\theta)}(R^n) = \frac{m}{\omega_n}$ and $\underline{W}_s^{(\theta)}\geqslant 0$ in $(0, R^n)$ as well as
-	\begin{equation}\label{subsolution equation}
-		n^2s^{2-\frac2n}\underline{W}_{ss}^{(\theta)} + n\uwt_s(1 + n\uwt_s)^{\alpha-1} \left(\uwt - \frac{\mu}{n}s\right) > 0
-	\end{equation}
-for all  $s\in(0, R^n)\setminus \{ s_0^{(\theta)}\}$, 	and such that $[0, 1) \ni \theta \mapsto \uwt $ is continuous as a $C^1([0, R^n])$-valued mapping, where
-	\begin{equation}\nonumber
-		\underline{W}^{(0)}(s) = \frac{\mu}{n}s \quad\text{ for all } s\in(0, R^n)
-	\end{equation}
-    and
-	\begin{equation}\nonumber
-		\uwt (s) \rightarrow \frac{m}{\omega_n} \quad\text{ for all } s\in(0, R^n)  \text{ as } \theta\nearrow 1.
-	\end{equation}
+\begin{frame}
+\begin{lemma}[Comparison method]
+	Let $T>0$, $w_0\in C^1(\overline{\Omega})$ and suppose that $\uu$ and $\ou$ are two nonnegative functions which belong to
+\[
+    C^0([0, 1]\times [0, T])\cap
+    C^1((0, 1)\times(0, T))\cap
+    C^0((0, T); W^{2,\infty}((0,1)))
+\]
+and satisfy
+\begin{equation*}
+		\mathcal{P}(\uu, w_0) \leqslant \mathcal{P}(\ou, w_0)\quad\text{a.e. } \xi\in(0,1) \text{ and for all } t \in(0, T),
+\end{equation*}
+and if moreover
+\(
+  0\leqslant \ou_\xi\leqslant L\) for all  \((\xi,t)\in(0,1)\times(0,T)\)
+with some $L>0$,
+\begin{equation*}
+	\uu(0, t) \leqslant \ou(0, t) \quad{and}\quad\uu(1, t) \leqslant \ou(1, t) \quad\text{for all } t \in(0, T),
+\end{equation*}
+as well as
+\begin{equation*}
+	\uu(\xi, 0)\leqslant \ou(\xi, 0) \quad\text{for all }  \xi\in (0, 1),
+\end{equation*}
+then
+\begin{equation*}
+	\uu (\xi, t) \leqslant \ou (\xi, t) \quad\text{for all } (\xi, t) \in[0, 1]\times [0, T].
+\end{equation*}
 \end{lemma}
 \end{frame}
 
 
 \begin{frame}
-	\begin{equation}\label{eq:m asterisk}
-		m^\ast = \begin{cases}
-			8n\omega_nR^{n-2}, & \alpha\geqslant1,\\	% n=1\text{ or }2,\\
-			32n\omega_nR^{n-2} + (4n)^n\omega_n, & \alpha\in[\frac2n, 1), n > 2.\\
-			\end{cases}
+\frametitle{Stationary problems}
+The stationary problem of \eqref{sys: isp} can be formulated formally as
+\begin{equation}\nonumber
+  \begin{cases}
+    \Delta u - \nabla\cdot(u\nabla v) = 0, & x\in\Omega, \\
+    \Delta v - \fint_\Omega u + u = 0, & x\in\Omega, \\
+    w = u & x\in\Omega, \\
+    \partial_\nu u = \partial_\nu v = 0, & x\in\partial\Omega,
+  \end{cases}
+\end{equation}
+the component $u$ of which is transformed by the mass distribution function \eqref{eq: mass distribution function} into
+\begin{equation}\label{sys: stationary problem of mass distribution pde}
+  \begin{cases}
+    4\xi \mathscr U_{\xi\xi} + 2\left( \mathscr U-\frac{m\xi}{2\pi}\right)\mathscr U_\xi = 0, & \xi\in(0,1),\\
+    \mathscr U(0)=0, \mathscr U(1)=\frac{m}{2\pi}.
+  \end{cases}
+\end{equation}
+\end{frame}
+
+
+
+\begin{frame}{Step 1: A continuous family stationary subsolutions}
+\begin{lemma}\label{le: stationary subsolution}
+	Suppose that $w_0\in C^1(\overline{\Omega})$ is radially symmetric and for some $C_0 > 0$,
+	\begin{equation}\label{h: W_0 behaves well}
+		W_0(\xi) \geqslant K_0\xi + C_0\xi(1-\xi)\quad\text{for all } \xi\in[0,1].
 	\end{equation}
- Let $m>m^\ast$.
+    %where $W_0$ and $K_0$ are defined in \eqref{eq: W_t} and \eqref{eq: K_t}, respectively.
+	Then for any choice of $m \geqslant32\pi$, there exists $\theta_0=\theta_0(C_0)\in(0,1)$ with the following property:  One can find families $\{\xi_0^{(\theta)}\}_{\theta\in[0, 1)}\subset(0, 1)$ and $\{\uut\}_{\theta\in[0, 1)}\subset C^1([0, 1])$ such that for all $\theta\in(0, 1)$, $\uut$ moreover belongs to $C^2([0, 1]\backslash \{\xi_0^{(\theta)}\})\cap W^{2, \infty}((0, 1))$ and satisfies $\uut(0) = 0$, $\uut(1) = \frac{m}{2\pi}$ and $\uut_\xi\geqslant 0$ in $(0, 1)$ as well as
+	\begin{equation}\label{eq: subsolution equation}
+		\mathcal{P}(\uut, w_0) < 0 \quad\text{for all } \xi\in(0, 1)\setminus \{ \xi_0^{(\theta)}\} \text{ and } \theta\in(0, \theta_0),
+	\end{equation}
+	and such that $[0, 1) \ni \theta \mapsto \uut $ is continuous as a $C^1([0, 1])$-valued mapping, where
+	\begin{equation}\label{eq:uu0}
+		\underline{\mathscr U}^{(0)}(\xi) = \frac{m\xi}{2\pi} \quad\text{for all } \xi\in(0, 1)
+	\end{equation}
+
+\end{lemma}
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{block}{Continued}
+	and
+	\begin{equation}\label{eq:uut pp converges to m/2pi}
+		\uut (\xi) \rightarrow \frac{m}{2\pi} \quad\text{for all } \xi\in(0, 1) \text{ as } \theta\nearrow 1.
+	\end{equation}
+	Particularly, for all  $\xi\in (0, 1)\setminus \{ \xi_0^{(\theta)}\}$ and $\theta\in(0,1)$.
+	\begin{equation}\label{eq:stationary subsolution inequality}
+		4\xi\uut_{\xi\xi} + 2\uut_\xi\left(\uut -\frac{m\xi}{2\pi}\right) > 0
+	\end{equation}
+\end{block}
+
 Define for $\theta\in[0,1)$, $d=d(\theta)=\frac\mu{n}(1-\theta)\in(0,\frac\mu{n}],$
 	\begin{equation}\label{parameter c b s}
 	c = \left(\frac{n}{\mu}d\right)^3, s_0 = \frac{n}{2\mu}dR^n, b = \left(1 - \frac{n}{\mu}d\right)\frac4{R^n}
