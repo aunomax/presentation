@@ -1,0 +1,26 @@
+\section{生物背景}
+
+\begin{frame}{生物背景}
+  
+\begin{itemize}
+    \item 生物趋化性是指生命体在化学物质刺激作用下所作出的定向运动.
+    %\item 趋化现象于自然界中广泛存在.
+    \item 为了研究细胞的\alert{聚集}现象, Keller 和 Segel~\footfullcite{Keller1970}提出了趋化模型
+\begin{equation*}\label{sys: general ks ch1}
+	\left\{
+	\begin{array}{ll}
+		u_t = \nabla\cdot(D_u(u,v)\nabla u \alert{- S(u,v)\nabla v}), & (x, t)\in \Omega\times(0, T), \\
+		v_t = D_v\Delta v  - G(v)v + uH(v),                   & (x, t)\in \Omega\times(0, T), \\
+	\end{array}
+	\right.
+\end{equation*}
+\begin{itemize}
+\item $u = u(x, t)$ 表示细胞密度,
+\item $v = v(x, t)$ 表示化学信号的聚集度,
+\item $D_u(u,v)$ 和 $D_v$ 分别表示细胞和化学信号的扩散强度,
+\item $S(u,v)$ 表示趋化灵敏度函数,
+\item $-G(v)v + uH(v)$ 表示化学信号的降解和产生.
+\item 细胞的运动包括自身的随机扩散和\alert{沿化学信号浓度梯度方向的趋化吸引运动}.
+\end{itemize}
+\end{itemize}
+\end{frame}

@@ -1,0 +1,229 @@
+\section{成果}
+
+\subsection{已发表论文}
+\begin{frame}
+  \frametitle{超临界密度依赖趋化模型临界质量}
+  \begin{equation}
+		\label{sys: nonlinear sensitivity}
+		\begin{cases}
+			u_t = \Delta u - \nabla \cdot(u(1+u)^{\alpha-1} \nabla v), & \quad t>0, x\in\Omega,          \\
+			0 =  \Delta v - \fint_\Omega u + u,                                   & \quad t>0, x\in\Omega,    
+		\end{cases}
+	\end{equation}
+  \begin{equation}\label{H: u_0}
+		 u_0\in C^\vartheta(\overline{\Omega}) (\vartheta\in(0, 1))
+		\text{ 是非负径向对称非增函数, 且不为常数.} 
+	\end{equation}
+  \begin{theorem}[M-Li-MMMAS-2023]
+		令 $N\geqslant2$, $\Omega = B_R$ 且 $R>0$.
+		当 $\alpha > 2/N$ 时,
+		记
+		\begin{equation*}
+			S(N, R, \alpha) := \{ m > 0 \mid
+			\text{ 对任意 } u_0 \text{ 满足 } \eqref{H: u_0},
+			%\text{ 模型 } \eqref{sys: nonlinear sensitivity}
+			\text{ 解有限时刻爆破.}\}
+		\end{equation*}
+		当 $\alpha=2/N$ 时, 记 $S(N, R, \alpha) := \{ m > 0 \mid
+			\text{ 对任意 } u_0 \text{ 满足 } \eqref{H: u_0},
+			\text{ 模型 } \eqref{sys: nonlinear sensitivity} 
+			\text{ 有一个无界解.}\}$\\
+		则对任给 $N\geqslant2$, $R>0$ 以及 $\alpha\geqslant2/N$
+		\[ 
+		m_c(N, R, \alpha) := \inf S(N, R, \alpha)
+		\]
+		是适定且正的.
+		进一步, $(m_c,\infty)\subset S(N, R, \alpha)$.
+	\end{theorem}
+\end{frame}
+
+\begin{frame}
+  \frametitle{间接信号趋化模型的 Dirac 型全部质量聚集}
+  \begin{align}
+		\begin{cases}
+			\label{sys: my ks}
+			u_t = \Delta u - \nabla \cdot(u\nabla v), & t>0, x\in\Omega,          \\
+			0 =  \Delta v - \fint_\Omega w(x, t)\dd x + w,                  & t>0, x\in\Omega,          \\
+			w_t + w = u,                              & t > 0, x\in\Omega,        \\
+			% \partial_\nu u = \partial_\nu v = 0 ,     & t >0, x\in\partial\Omega, \\
+			% u(\cdot, 0) = u_0, w(\cdot, 0) = w_0,     & x\in\Omega
+		\end{cases}
+	\end{align}
+  \begin{theorem}[M-Li-2024-DCDSS]
+		\label{thm: large m implies blowup}
+		设 $\Omega\subset\mathbb{R}^2$ 是单位圆盘, 记 $m:=\int_\Omega u_0 \dd{x}$. 对任意满足 \eqref{h: initial data u0 w0} 
+		\begin{equation}\label{h: initial data u0 w0}
+			\begin{cases}
+				(u_0, w_0)\in C^0(\overline{\Omega})\times C^1(\overline{\Omega}), 
+				u_0 \text{ 和 } w_0\text{ 是非负径向对称函数, }                              \\
+				\fint_0^ru_0\rho\dd {\rho} \gneqq \int_0^1u_0\rho\dd {\rho}
+				\text{和}
+				\fint_0^rw_0\rho\dd {\rho} \geqslant \int_0^1w_0\rho\dd {\rho},
+				\quad r\in(0, 1).
+			\end{cases}
+		\end{equation}
+		且 $m \geqslant32\pi$ 的初值 $(u_0, w_0)$,
+		模型~\eqref{sys: my ks} 的解 $(u, v, w)$ 无穷时刻爆破,
+		确切地说, 当 $t\to\infty$,
+		\begin{equation*}
+			u(\cdot, t) \weakstar m\delta_0
+			\quad\text{ 在 }
+			\mathcal{M}(\overline{\Omega}).
+		\end{equation*}
+	\end{theorem}
+\end{frame}
+
+\begin{frame}
+  \frametitle{超临界通量限制趋化模型常数稳态解的不稳定性}
+  \begin{equation}\label{sys: my ks flux limitation}
+    \begin{cases}
+      u_t=\Delta u-\nabla \cdot\left(u f\left(|\nabla v|\right) \nabla v\right), & x\in\Omega, t > 0,       \\
+      0=\Delta v - \fint_\Omega u + u,                                                          & x\in\Omega, t>0,         \\
+      \partial_\nu u = \partial_\nu v = 0,                                       & x\in\partial\Omega, t>0, \\
+      % u(\cdot, 0) = u_0(\cdot),                                                  & x\in\Omega,              \\
+      % \int_{\Omega} v\dd x=0, \quad\mu:= \fint_{\Omega} u \dd x,               & t>0,
+    \end{cases}
+  \end{equation}
+  \begin{theorem}[M-Li-2024-NA]
+    \label{thm: large constant steady state is unstable}
+    令 $N\geq3$, $R>0$, \(\alpha\in[N/(N-1),2)\) 且
+    $\Omega=B_R$.
+    假设 $u_0\in C_{\rad}^0(\overline{\Omega})$.
+    则存在 $m^\ast > 0$ 使得 只要 \(\alpha\in(\alpha_\ast, 2)\),
+    则对任意满足
+    \(\int_{\Omega} u_0 \geq m^\ast\)
+    和
+    \begin{equation}\label{h: concentrate more than average mass}
+      \fint_{B_r}u_0 \dd x\gneqq \fint_{B_R}u_0 \dd x
+      \quad\text{ 对任意 }r\in(0, R) \text{ 成立 },
+    \end{equation}
+    的初值 $u_0$,
+    解 $(u, v)$ 在有限时刻 $T_{\max}\in(0,\infty)$ 爆破,
+    % 即,
+    % \[\lim_{t \nearrow T_{\max}}\|u(\cdot, t)\|_{L^\infty(\Omega)} = \infty,\]
+    而且当 $\alpha = N/(N-1)$ 时, 解会在有限时刻或无穷时刻爆破. 其中
+    \begin{equation}
+      \label{sym: f a lipschitz continuous function}
+      f(\xi)=(1+\xi^2)^{\frac{\alpha-2}{2}},
+      \quad \xi\in\mathbb{R}.
+    \end{equation}
+  \end{theorem}
+\end{frame}
+
+\subsection{已投稿论文}
+
+\begin{frame}
+  \frametitle{J\"ager-Luckhaus模型 \texorpdfstring{$8\pi$}{8pi} 问题的有界性}
+  \begin{align}
+    \begin{cases}
+      \label{sys: JL}
+      u_t = \Delta u - \nabla \cdot(u\nabla v), & t>0, x\in\Omega,          \\
+      0 =  \Delta v - \fint_\Omega u_0\dd{x} + u,                  & t>0, x\in\Omega,          \\
+      \partial_\nu u = \partial_\nu v = 0 ,     & t >0, x\in\partial\Omega, \\
+      u(\cdot, 0) = u_0,                        & x\in\Omega,
+    \end{cases}
+  \end{align}
+
+  \begin{theorem}[M-Li-arXiv-2024]
+    \label{thm: global wellposedness}
+    令 \(\Omega=B_1 :=\{x\in\mathbb R^2: |x|<1\}\).
+    假设初值 \(u_0\in C^0(\overline{\Omega})\) 是非负径向对称函数, 还满足
+    \[
+      m := \int_\Omega u_0\dd x \in(0, 8\pi].
+    \]
+    则模型~\eqref{sys: JL}
+    的古典解 全局存在且一致有界, 还满足
+    \[
+      \lim_{t\to\infty}\|u-m/\pi\|_{L^\infty(\Omega)} = 0.
+    \]
+  \end{theorem} 
+\end{frame}
+
+\begin{frame}
+  \frametitle{间接信号完全抛物趋化模型的整体存在性与无界性}
+  \begin{align}
+    \begin{cases}
+      \label{sys: ks isp ppp}
+        u_t = \nabla\cdot (D(u) \nabla u) - \nabla \cdot(S(u)\nabla v),&  t>0, x\in\Omega,\\
+        v_t =  \Delta v - v + w,&  t>0, x\in\Omega,	\\
+        w_t  = \Delta w - w + u, &  t > 0, x\in\Omega, \\
+        % \partial_\nu u = \partial_\nu v = \partial_\nu w = 0 , & t >0, x\in\partial\Omega,\\
+        % (u(\cdot, 0), v(\cdot, 0), w(\cdot, 0)) = (u_0, v_0, w_0), & x\in\Omega,
+    \end{cases}
+    \end{align}
+
+    \begin{corollary}[M-Li-arXiv-2024]
+      \label{coro: infinite-time blowup}
+      令 $n\geq2$ 且 $\Omega\subset\mathbb R^n$ 是个球.
+      假设 
+      \centerline{$D(s) = K_D(s+1)^{-\alpha}$, $S(s) = k_S(s+1)^{\beta-1}s$, $s>0$,}
+      其中 $\alpha,\beta\in\mathbb R$ 以及 $K_D,k_S > 0$.
+      如果 
+      \centerline{$\beta < \frac2n$,}
+      则解都是整体存在的.
+      如果进一步假设 $n\geq4$ 并且
+      \centerline{  $\alpha + \beta > \frac{4}{n}$,}
+      那么对每个 $m>0$, 存在径向对称初值 $(u_0, v_0, w_0)\in (C^\infty(\overline{\Omega}))^3$ 
+    满足 $\int_\Omega u_0 = m$ 使得对应的解 $(u,v,w)$ %有限或无穷时刻爆破.  
+      %则该解 $(u,v,w)$ 
+      无穷时刻爆破.
+    \end{corollary}
+\end{frame}
+
+\subsection{工作中论文}
+
+\begin{frame}
+  \frametitle{工作中论文}
+  \begin{align}
+    \begin{cases}
+      \label{sys: ks isp pp/ep/e}
+        u_t = \Delta u - \nabla \cdot(u\nabla v),&  t>0, x\in\Omega,\\
+        v_t =  \Delta v - v + w,&  t>0, x\in\Omega,	\\
+        0  = \Delta w - w + u, &  t > 0, x\in\Omega, \\
+        \partial_\nu u = \partial_\nu v = \partial_\nu w = 0 , & t >0, x\in\partial\Omega,\\
+        (u(\cdot, 0), v(\cdot, 0)) = (u_0, v_0), & x\in\Omega,
+    \end{cases}
+  \end{align}
+  \begin{description}
+    \item [撰写中] 当 $n > 4$ 时, 在径向对称假设下, 对任意充分大负值能量初值, 解都有限时刻爆破;
+    \item [下一步工作] 当 $n = 4$ 时, 预期结果: 在径向对称假设下, 对任意充分大负值能量初值, 
+    且具有超临界质量 $\int_\Omega u_0 > 64\pi^2$, 解都有限时刻爆破.
+    \item [未来短期计划] 继续趋化模型的爆破研究 (柯西问题;退化扩散;爆破形态).
+  \end{description}
+\end{frame}
+
+\section{总结}
+
+\begin{frame}
+  \frametitle{总结}
+  已发表论文\\
+  \textbf{Xuan Mao}, Yuxiang Li.
+  Critical Mass for Keller-Segel Systems with Supercritical Nonlinear Sensitivity. 
+  \emph{Math. Models Methods Appl. Sci.}, 2023, 33(11): 2395--2423.
+  %\url{https://doi.org/10.1142/S0218202523400079}
+  %\href{https://doi.org/10.1142/S0218202523400079}{doi:10.1142/S0218202523400079}
+  \hfill (数学会T1; 中科院1区; JCR: Q1)\\
+  \textbf{Xuan Mao}, Yuxiang Li. 
+  Dirac-type aggregation with full mass in a chemotaxis model. 
+  \emph{Discrete Contin. Dyn. Syst. Ser. S.}, 2024, 17(4):1513--1528. 
+  %\url{https://doi.org/10.3934/dcdss.2023185}
+  %\href{https://doi.org/10.3934/dcdss.2023185}{doi:10.3934/dcdss.2023185}
+  \hfill (数学会T4; 中科院4区; JCR: Q2)\\
+  \textbf{Xuan Mao}, Yuxiang Li. 
+  Instability of homogeneous steady states in chemotaxis systems with flux limitation, 
+  \emph{Nonlinear Anal.}, 2024, 243: Paper No. 113527, 18.
+      %\url{https://doi.org/10.1016/j.na.2024.113527}
+  \hfill (数学会T3; 中科院2区; JCR: Q1)\\
+  已完成工作\\
+  \textbf{Xuan Mao}, Yuxiang Li. 
+  A note on the $8\pi$ problem of J\"ager-Luckhaus system.
+  %\href{https://doi.org/10.48550/arXiv.2405.06315}
+  {arXiv: 2405.06315}.\\ 
+  \textbf{Xuan Mao}, Yuxiang Li.
+  Global solvability and unboundedness in a fully parabolic quasilinear chemotaxis model with indirect signal production.
+  %arXiv preprint, 2024, 
+  %\href{https://arxiv.org/abs/2410.13238}
+  {arXiv: 2410.13238}.
+  
+  %\href{https://doi.org/10.1016/j.na.2024.113527}{doi:10.1016/j.na.2024.113527}\\
+  \end{frame}
