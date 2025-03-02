@@ -1,0 +1,168 @@
+% !TEX program = xelatex
+% !BIB program = bibtex8
+
+
+% =============================================================================
+%
+% IMPORTANT WARNING:
+% ==================
+%
+% You can use this sample as a template for your documents...
+%
+% However, you should keep your documents in a safe place where they belong.
+% WinEdt's Local Application Data Folder will be removed if you uninstall
+% the program and ALL documents inside this (%b) folder will be lost!!!
+%
+% =============================================================================
+%--------------PREAMBLE------------------------------------------------------
+
+
+\documentclass[10pt]{beamer}
+
+
+\usepackage[english]{babel}
+\usepackage{fancyhdr}        % header footer
+\usepackage{graphicx}        % figure
+%\usepackage{algorithm2e}
+%\usepackage{booktabs}
+\usepackage{xcolor}
+%\usepackage{bookmark}
+%\usepackage{stix} 
+\usepackage{esint}
+%\usepackage{unicode-math}
+\usepackage[scheme=plain]{ctex}
+
+%\usepackage[backend=biber, style=gb7714-seu]{biblatex}
+%\bibliography{reference.bib}
+
+%\usepackage{beamerthemesplit}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+%\usepackage{graphicx}
+%\usepackage{hyperref}
+% you may include additional packages should you need them
+
+%\usetheme{Madrid}
+%\usetheme{Xiaoshan}
+\usetheme[block=fill,
+    sectionpage=none,   %optional: none, simple, progressbar
+    progressbar=head,   %optional: none, head, frametitle, foot
+    numbering=fraction,   %optional: none, counter, fraction
+    ]{metropolis}
+%\metroset{block=fill}
+%\usefonttheme{serif,professionalfonts}
+%\setbeamerfont*{frametitle}{size=\normalsize,series=\bfseries}
+
+
+\usefonttheme[onlymath]{serif}
+
+\setbeamertemplate{navigation symbols}{}
+%\AtBeginSection[]{}
+
+\newcommand{\R}{\mathbb{R}}    % the real numbers
+\newcommand{\dd} {\ \mathrm d}
+\newcommand{\uwt}{\underline{W}^{(\theta)}}
+\newcommand{\uw}{\underline{W}}
+\newcommand{\ow}{\overline{W}}
+\newcommand{\fna}{\frac{2}{\alpha n}}
+
+\newcommand{\blue}[1]{{\color{blue} #1}}
+
+\newcommand{\weakstar}{
+\buildrel\ast\over\rightharpoonup
+%\stackrel{\ast}{\rightharpoonup}
+%\overset{\ast}{\rightharpoonup}
+}
+
+\DeclareMathOperator*{\rad}{rad}
+
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+
+\title{一致连续性}
+
+\author{毛宣\inst{1}\and
+    导师: 李玉祥\inst{1}}
+\institute{
+    \inst{1}东南大学数学学院
+    }
+\date{
+    安徽大学, 合肥\\
+    2025年3月3日
+    }
+%\date{\zhtoday}
+
+\begin{document}
+
+
+\begin{frame}
+    \usebeamertemplate{title page}
+\end{frame}
+%\frame{\frametitle{Outline}\tableofcontents}
+
+
+
+%\section{教育经历}
+
+\begin{frame}{连续与一致连续}
+  \begin{block}{$f(x)$在区间$I$上连续}
+    $f$在区间$I$内每一点$x_0\in I$处都连续：对任意正数$\varepsilon>0$，存在$\delta=\delta(x_0,\varepsilon)>0$使得对任意$x\in I$，只要$|x-x_0|<\delta$，就有$|f(x_0)-f(x)|<\varepsilon$.
+  \end{block}
+  \begin{block}{$f(x)$在区间$I$上一致连续}
+    设$f$为定义在区间$I$上的函数, 如果对于任意的正数$\varepsilon>0$，存在$\delta=\delta(\varepsilon)>0$使得对任意$x_1,x_2\in I$，只要$|x_1-x_2|<\delta$，就有$|f(x_1)-f(x_2)|<\varepsilon$.
+  \end{block}
+  \begin{example}
+    $f(x) = \sin x$是$(-\infty,+\infty)$上的一致连续函数。
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{$f(x)$在区间$I$上非一致连续}
+  存在正数$\varepsilon_0>0$，使得对任意$\delta>0$都存在$x_1,x_2\in I$并且$|x_1-x_2|<\delta$，有$|f(x_1)-f(x_2)|>\varepsilon_0$.
+  \end{block}
+  \begin{block}{$f(x)$在区间$I$上一致连续的充要条件}
+    对任意点列$\{x_n'\}(x_n'\in I)$和 $\{x_n''\}(x_n''\in I)$,只要满足$\lim_{n\to\infty}(x_n'-x_n'') = 0$,就成立$\lim_{n\to\infty}(f(x_n')-f(x_n''))=0$.
+  \end{block}
+  \begin{example}
+    $f(x) =  \frac1x$在$(0,1)$上非一致连续。
+  \end{example}
+  \begin{example}
+    $f(x) =  x^2$在$[0,+\infty)$上非一致连续,但在$[0,A]$上一致连续，其中$A$为任意正数。
+  \end{example}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Cantor 定理}
+    若函数$f(x)$在闭区间$[a,b]$上连续，则它在$[a,b]$上一致连续。
+  \end{block}
+  \begin{example}
+    设$f(x)$在$(a,b)$上连续.则$f(x)$在$(a,b)$上一致连续的充分必要条件是:$f(a+)$与$f(b-)$都存在。
+  \end{example}  
+\begin{example}
+  设$f(x)$在$[a,+\infty)$上连续并且$\lim_{x\to\infty} = A$,则$f(x)$在$[a,+\infty)$上一致连续。
+\end{example}
+\begin{example}
+  $f(x)=\sqrt{x}$在$[0,\infty)$上一致连续。
+\end{example}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\input{contents/results}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\input{proof}
+
+\begin{frame}[standout]
+    感谢倾听!
+\end{frame} 
+%--------------END-----------------------------------------------------------
+
+\end{document}
+
+
+
+
